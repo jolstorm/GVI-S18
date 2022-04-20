@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <link rel="stylesheet" href="./forms.css" />
+  </head>
+  <body>
+    <form action="#" name="MyForm" autocomplete="on">
+      <fieldset>
+        <legend>Contact details</legend>
+
+        <label for="text">Text</label><br />
+        <input
+          type="text"
+          id="text"
+          name="text"
+          placeholder="Enter your name here"
+          required
+        />
+        <br />
+        <label for="email">Email</label><br />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email here"
+          disabled
+        /><br />
+        <label for="query">Query</label><br />
+        <textarea
+          name="query"
+          id="query"
+          cols="50"
+          rows="10"
+          required
+        ></textarea>
+        <input type="submit" />
+      </fieldset>
+    </form>
+
+      <form action="#" name="MyForm1" autocomplete="on"></form>
+      <fieldset>
+        <legend>Multiple options</legend>
+
+        <label for="movies_SW"></label>
+        <select name="movies_SW" id="movies_SW">
+          <option value="The Phantom Menace">The Phantom Menace</option>
+          <option value="Clone Wars">Clone Wars</option>
+          <option value="Empire Strikes Back">Empire Strikes Back</option>
+          <option value="Return of the Jedi">Return of the Jedi</option></select
+        ><br /><br />
+        <input type="submit" /><br />
+        <label for="char">Select your favourite characters</label><br />
+        <input type="radio" id="Han solo" name="characters" />
+        <label for="Han solo">Han Solo</label><br />
+        <input type="radio" id="Mandalorian" name="characters" />
+        <label for="Mandalorian">Mandalorian</label><br />
+        <input type="radio" id="Lando Calrissian" name="characters" />
+        <label for="Lando Calrissian">Lando Calrissian</label><br />
+      </fieldset>
+    </form>
+
+      <form action="#" name="MyForm2" autocomplete="on"></form>
+      <fieldset>
+        <legend>Date/Time Inputs</legend>
+        <label for="dob">DOB:</label><br />
+        <input type="date" id="dob" required /><br /><br />
+        <label for="time">Time</label><br />
+        <input type="time" id="time" /><br />
+        <br />
+        <input type="submit" /><br /><br />
+      </fieldset>
+      </form>
+
+      <form action="#" name="MyForm3" autocomplete="on"></form>
+      <fieldset>
+        <legend>File type Inputs</legend>
+        <label for="file_upload" id="upload_label">Upload file</label><br />
+        <input type="file" id="file_upload" required style="display: none" />
+        <label for="mfile_upload" id="upload_label">Upload multiple files</label
+        ><br />
+        <input
+          type="file"
+          id="mfile_upload"
+          required
+          style="display: none"
+          multiple
+          target="_blank"
+        /><br /><br />
+        <input type="submit">
+      </fieldset>
+    </form>
+  </body>
+</html>

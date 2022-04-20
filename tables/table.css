@@ -1,0 +1,30 @@
+th {
+  background-color: #04aa6d;
+  color: white;
+}
+table {
+  border-collapse: collapse;
+}
+td {
+  height: 30px;
+  text-align: center;
+  vertical-align: center;
+}
+
+/* tr:hover {
+  background-color: green;
+}
+
+tr:nth-child(even) {
+  background-color: #fbf3f3;
+}
+tr:nth-child(odd) {
+  background: -moz-linear-gradient();
+} */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+th,
+td {
+  border: 1px solid black;
+}
