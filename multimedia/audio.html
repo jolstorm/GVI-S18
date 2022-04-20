@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimedia</title>
+    <link rel="stylesheet" href="./multimedia.css" />
+  </head>
+  <body>
+    <section id="audio_section">
+      <div>
+        <h1>Cheering</h1>
+        <!-- <iframe src="./SampleAudio_0.4mb.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style=”display:none”></iframe> -->
+        <audio autoplay controls>
+          <source src="./SampleAudio_0.4mb.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+      <div>
+        <h1>River flow</h1>
+        <audio controls>
+          <source src="./SampleAudio_0.7mb.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+    </section>
+
+    <section id="image_section">
+      <img src="./star-wars-logo-3654.jpg" alt="Star Wars" />
+    </section>
+
+    <section id="video_section">
+      <video
+        src="./istockphoto-1358221129-640_adpp_is.mp4"
+        controls
+        autoplay
+        muted
+        height="100%"
+        width="100%"
+      ></video>
+    </section>
+
+    <section id="iframe_section">
+      <div class="frame">
+        <iframe
+          src="../../tags.html"
+          title="check"
+          name="check1"
+          height="500px"
+          width="500px"
+        >
+        </iframe>
+      </div>
+      <div id="links">
+        <a href="www.youtube.com" target="check1">Open Youtube</a>
+        <a href="www.google.com" target="check1">Open Google</a>
+        <a href="www.shopify.com" target="check1">Open SHopify</a>
+        <a href="www.udemy.com" target="check1">Open Udemy</a>
+        <a href="../tags.html" target="check1">Open Original</a>
+      </div>
+    </section>
+
+    <section id="anchortag_section">
+      <a href="#image_section">Image Section</a>
+      <a href="#audio_section">Audio Section</a>
+      <a href="#video_section">Video Section</a>
+      <a href="#iframe_section">Iframe Section</a>
+      <a href="./alien.png" target="check1">Download file</a>
+    </section>
+  </body>
+</html>
