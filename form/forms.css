@@ -5,7 +5,7 @@ fieldset {
   width: 500px;
   margin: 0 auto;
 }
-#upload_label {
+#mupload_label {
   width: 200px;
   height: 100px;
   border-radius: 10px;
@@ -13,6 +13,6 @@ fieldset {
   font-size: 2rem;
 }
 
-#upload_label:hover {
+#mupload_label:hover {
   cursor: pointer;
 }

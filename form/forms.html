@@ -36,62 +36,59 @@
           cols="50"
           rows="10"
           required
+          style="resize: none"
         ></textarea>
         <input type="submit" />
       </fieldset>
     </form>
 
-      <form action="#" name="MyForm1" autocomplete="on"></form>
-      <fieldset>
-        <legend>Multiple options</legend>
+    <form action="#" name="MyForm1" autocomplete="on"></form>
+    <fieldset>
+      <legend>Multiple options</legend>
 
-        <label for="movies_SW"></label>
-        <select name="movies_SW" id="movies_SW">
-          <option value="The Phantom Menace">The Phantom Menace</option>
-          <option value="Clone Wars">Clone Wars</option>
-          <option value="Empire Strikes Back">Empire Strikes Back</option>
-          <option value="Return of the Jedi">Return of the Jedi</option></select
-        ><br /><br />
-        <input type="submit" /><br />
-        <label for="char">Select your favourite characters</label><br />
-        <input type="radio" id="Han solo" name="characters" />
-        <label for="Han solo">Han Solo</label><br />
-        <input type="radio" id="Mandalorian" name="characters" />
-        <label for="Mandalorian">Mandalorian</label><br />
-        <input type="radio" id="Lando Calrissian" name="characters" />
-        <label for="Lando Calrissian">Lando Calrissian</label><br />
-      </fieldset>
-    </form>
+      <label for="movies_SW"></label>
+      <select name="movies_SW" id="movies_SW">
+        <option value="The Phantom Menace">The Phantom Menace</option>
+        <option value="Clone Wars">Clone Wars</option>
+        <option value="Empire Strikes Back">Empire Strikes Back</option>
+        <option value="Return of the Jedi">Return of the Jedi</option></select
+      ><br /><br />
+      <input type="submit" /><br />
+      <p>Select your favourite characters</p>
+      <input type="radio" id="Hansolo" name="characters" />
+      <label for="Hansolo">Han Solo</label><br />
+      <input type="radio" id="Mandalorian" name="characters" />
+      <label for="Mandalorian">Mandalorian</label><br />
+      <input type="radio" id="LandoCalrissian" name="characters" />
+      <label for="LandoCalrissian">Lando Calrissian</label><br />
+    </fieldset>
 
-      <form action="#" name="MyForm2" autocomplete="on"></form>
-      <fieldset>
-        <legend>Date/Time Inputs</legend>
-        <label for="dob">DOB:</label><br />
-        <input type="date" id="dob" required /><br /><br />
-        <label for="time">Time</label><br />
-        <input type="time" id="time" /><br />
-        <br />
-        <input type="submit" /><br /><br />
-      </fieldset>
-      </form>
+    <form action="#" name="MyForm2" autocomplete="on"></form>
+    <fieldset>
+      <legend>Date/Time Inputs</legend>
+      <label for="dob">DOB:</label><br />
+      <input type="date" id="dob" required /><br /><br />
+      <label for="time">Time</label><br />
+      <input type="time" id="time" /><br />
+      <br />
+      <input type="submit" /><br /><br />
+    </fieldset>
 
-      <form action="#" name="MyForm3" autocomplete="on"></form>
-      <fieldset>
-        <legend>File type Inputs</legend>
-        <label for="file_upload" id="upload_label">Upload file</label><br />
-        <input type="file" id="file_upload" required style="display: none" />
-        <label for="mfile_upload" id="upload_label">Upload multiple files</label
-        ><br />
-        <input
-          type="file"
-          id="mfile_upload"
-          required
-          style="display: none"
-          multiple
-          target="_blank"
-        /><br /><br />
-        <input type="submit">
-      </fieldset>
-    </form>
+    <form action="#" name="MyForm3" autocomplete="on"></form>
+    <fieldset>
+      <legend>File type Inputs</legend>
+      <label for="file_upload" id="upload_label">Upload file</label><br />
+      <input type="file" id="file_upload" required style="display: none" />
+      <label for="mfile_upload" id="mupload_label">Upload multiple files</label
+      ><br />
+      <input
+        type="file"
+        id="mfile_upload"
+        required
+        style="display: none"
+        multiple
+      /><br /><br />
+      <input type="submit" />
+    </fieldset>
   </body>
 </html>
