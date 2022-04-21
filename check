@@ -1,0 +1,31 @@
+let uCase = 0;
+let lCase = 0;
+let sC = 0;
+let num = 0;
+let password = "asd123@#@#";
+if (password.length > 8 && password.length < 16) {
+  //Password length
+  for (letter of password) {
+    //Individual Characters
+    if (letter.isUpperCase()) {
+      console.log("Uppercase");
+      uCase++;
+    }
+    if (letter.isLowerCase()) {
+      lCase++;
+    }
+    if (!isNaN(letter)) {
+      num++;
+      console.log("Num");
+    }
+    if (letter.charCodeAt(0) > 32 && letter.charCodeAt(0) < 48) {
+      sC++;
+    }
+  }
+
+  if (lCase == 0 || uCase == 0 || sC == 0 || num == 0) {
+    console.log("invalid password");
+  }
+} else {
+  console.log("Password must be 8-16 characters long");
+}
