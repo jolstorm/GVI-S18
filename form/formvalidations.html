@@ -225,9 +225,6 @@
       let fileUploadCount = 0;
 
       fileInput.addEventListener("change", (e) => {
-        // if (fileUploadCount == 0) {
-        //   fileUploadCount++;
-
         fileInputButton.style.display = "none";
         //Adding file name to button
         uploadedFileName.innerHTML = `${e.target.files[0].name}`;
@@ -235,9 +232,6 @@
         details.fileName = e.target.files[0].name;
         remove_file_button.style.removeProperty("display");
         console.log(details.fileName);
-        // } else {
-        //   alert("You can upload the file only once");
-        // }
       });
 
       const hideRemoveButton = () => {
