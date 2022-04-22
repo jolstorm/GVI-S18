@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day06FormValidations</title>
     <link rel="stylesheet" href="./fv.css" />
+    <script
+      src="https://kit.fontawesome.com/ef9c4ed6ba.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <form action="#" name="form1" onsubmit="return validate()">
+    <form
+      action="#"
+      name="form1"
+      id="form1"
+      onsubmit="return validate()"
+      onreset="return hideRemoveButton()"
+    >
       <label for="email">Email Id:</label><br />
       <input
         type="text"
@@ -101,95 +111,145 @@
         id="file_upload"
         name="file_upload"
       />
-      <label for="file_upload" id="file_upload_button">Upload file here</label>
+      <label for="file_upload" id="file_upload_button"
+        ><i class="fa-solid fa-camera"></i>
+      </label>
+      <label id="uploaded_file_name"></label>
+
+      <button type="button" id="remove_file_button" style="display: none">
+        Remove</button
+      ><br /><br />
+
+      <input type="submit" />
+      <input type="reset" />
     </form>
 
     <script>
+      // //empty object for details
+      let details = {};
       function validate() {
-        //empty object
-        let details = {};
-        const email = document.forms["form1"]["email"].value;
-        const mobileNumber = document.forms["form1"]["mobile_number"].value;
-        const password = document.forms["form1"]["password"].value;
+        // const email = document.forms["form1"]["email"].value;
+        // const mobileNumber = document.forms["form1"]["mobile_number"].value;
+        // const password = document.forms["form1"]["password"].value;
 
-        //Check if all fields are present
-        if (!email || !mobileNumber || !password) {
-          alert("All fields are required");
+        // //Check if all fields are present
+        // if (!email || !mobileNumber || !password) {
+        //   alert("All fields are required");
+        // } else {
+        //   //Checking email validity
+        //   let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        //   if (emailRegex.test(email)) {
+        //     details.email = email;
+        //   } else {
+        //     alert("Invalid email");
+        //   }
+
+        //   //Checking number validity
+        //   let validMobNum = true;
+        //   mobileNumberRegex = /^[0-9]{10}$/;
+        //   if (mobileNumber.length == 10) {
+        //     for (digit of mobileNumber) {
+        //       if (digit.charCodeAt(0) < 48 || digit.charCodeAt(0) > 57) {
+        //         alert("Invalid number");
+        //         vaildMobNum = false;
+        //         break;
+        //       }
+        //     }
+
+        //     //Store in details object if number is valid
+        //     if (validMobNum) {
+        //       details.mobileNumber = mobileNumber;
+        //     }
+        //   } else {
+        //     alert("Invalid mobile number length");
+        //   }
+
+        //   //Checking password validity
+        //   const passwordRegex =
+        //     /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        //   if (passwordRegex.test(password)) {
+        //     details.password = password;
+        //   } else {
+        //     alert("Invalid Password");
+        //   }
+        // }
+
+        // //Select Validation
+        // console.log(details);
+        // const car = document.forms["form1"]["sports_cars"].value;
+        // if (car == "none") {
+        //   details.car = car;
+        //   alert("Please select a car");
+        // } else {
+        //   console.log(car);
+        // }
+
+        // //Radio buttons
+        // const character = document.forms["form1"]["characters"].value;
+        // details.character = character;
+        // console.log(character);
+
+        // //CHeckbox validation
+        // const checkboxes = document.querySelectorAll(
+        //   "input[name='sauces']:checked"
+        // );
+        // let selectedSauces = [];
+        // checkboxes.forEach((checkbox) => {
+        //   selectedSauces.push(checkbox.value);
+        //
+        // });
+
+        // if (selectedSauces.length < 4) {
+        //   alert("Select atleast 4 sauces");
+        // }else{
+        //   details.sauces = selectedSauces;
+        // }
+
+        //Checking file input
+        if (details.fileName) {
+          alert("Data Valid");
+          console.log(details);
         } else {
-          //Checking email validity
-          let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-          if (emailRegex.test(email)) {
-            details.email = email;
-          } else {
-            alert("Invalid email");
-          }
-
-          //Checking number validity
-          let validMobNum = true;
-          mobileNumberRegex = /^[0-9]{10}$/;
-          if (mobileNumber.length == 10) {
-            for (digit of mobileNumber) {
-              if (digit.charCodeAt(0) < 48 || digit.charCodeAt(0) > 57) {
-                alert("Invalid number");
-                vaildMobNum = false;
-                break;
-              }
-            }
-
-            //Store in details object if number is valid
-            if (validMobNum) {
-              details.mobileNumber = mobileNumber;
-            }
-          } else {
-            alert("Invalid mobile number length");
-          }
-
-          //Checking password validity
-          const passwordRegex =
-            /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-          if (passwordRegex.test(password)) {
-            details.password = password;
-          } else {
-            alert("Invalid Password");
-          }
-        }
-
-        Select Validation
-        console.log(details);
-        const car = document.forms["form1"]["sports_cars"].value;
-        if (car == "none") {
-          details.car = car;
-          alert("Please select a car");
-        } else {
-          console.log(car);
-        }
-
-        Radio buttons
-        const character = document.forms["form1"]["characters"].value;
-        details.character = character;
-        console.log(character);
-
-        CHeckbox validation
-        const checkboxes = document.querySelectorAll(
-          "input[name='sauces']:checked"
-        );
-        let selectedSauces = [];
-        checkboxes.forEach((checkbox) => {
-          selectedSauces.push(checkbox.value);
-        });
-
-        if (selectedSauces.length < 4) {
-          alert("Select atleast 4 sauces");
-        }
-
-        const fileInput = document.getElementById("file_upload_button");
-        fileInput.addEventListener("change", func1(), false);
-        function func1() {
-          console.log(this.files);
+          alert("Please select a file");
         }
 
         return false;
       }
+
+      //Getting input element and adding event listener
+      const fileInput = document.getElementById("file_upload");
+      const fileInputButton = document.getElementById("file_upload_button");
+      const remove_file_button = document.querySelector("#remove_file_button");
+      const uploadedFileName = document.getElementById("uploaded_file_name");
+
+      let fileUploadCount = 0;
+
+      fileInput.addEventListener("change", (e) => {
+        // if (fileUploadCount == 0) {
+        //   fileUploadCount++;
+
+        fileInputButton.style.display = "none";
+        //Adding file name to button
+        uploadedFileName.innerHTML = `${e.target.files[0].name}`;
+
+        details.fileName = e.target.files[0].name;
+        remove_file_button.style.removeProperty("display");
+        console.log(details.fileName);
+        // } else {
+        //   alert("You can upload the file only once");
+        // }
+      });
+
+      const hideRemoveButton = () => {
+        uploadedFileName.innerHTML = "";
+
+        fileInputButton.style.removeProperty("display");
+        remove_file_button.style.display = "none";
+        delete details.fileName;
+        console.log("yolo");
+      };
+
+      remove_file_button.addEventListener("click", hideRemoveButton);
     </script>
   </body>
 </html>
