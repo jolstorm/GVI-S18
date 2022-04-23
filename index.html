@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eyha</title>
     <link rel="stylesheet" href="/index.css">
+    <script src="https://kit.fontawesome.com/3c8d6efe79.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
       <div class="container">
-        <div class="logo">ehya</div>
-        <button id="get_it_now_button">Get it now</button>
+        <div class="logo"> <img src="/logo.png" alt="ehya logo" > </div>
         <nav>
           <a href="#">Home</a>
-          <a href="#">Landing <i></i></a>
-          <a href="#">Pages <i></i></a>
+          <a href="#">Landings <img src="./chevron-down.svg" alt="down">
+          </a>
+          <a href="#">Pages<img src="./chevron-down.svg" alt="down"></a>
           <a href="#">Docs</a>
           <a href="#">Help</a>
+          <a id="get_it_now_button">Get it now</a>
         </nav>
       </div>
     </header>
@@ -26,15 +28,15 @@
         <section id="list_of_contents">
           <h3>INTRODUCTION</h3>
 
-          <h3>Welcome Docs 2.0</h3>
+          <h3 class="highlighted">Welcome Docs 2.0</h3>
 
           <h3>CHOOSE VERSION</h3>
 
-          <a href="#">Unstable version <i></i> </a><br />
-          <a href="#">v 1.0<i>Y</i></a><br />
-          <a href="#">v 2.0<i></i></a><br />
-          <a href="#">v 2.1 beta<i></i></a><br />
-          <a href="#">v 1.5 stable ver.<i></i> </a><br />
+          <a href="#">Unstable version <img src="/arrow-up-right.svg"> </a><br />
+          <a href="#">v 1.0<img src="./arrow-up-right.svg"></a><br />
+          <a href="#">v 2.0<img src="./arrow-up-right.svg"></a><br />
+          <a href="#">v 2.1 beta<img src="./arrow-up-right.svg"></a><br />
+          <a href="#">v 1.5 stable ver.<img src="./arrow-up-right.svg"> </a><br />
 
           <h3>COMMON STRUCTURES</h3>
           <a href="#">Before you begin </a><br />
@@ -47,15 +49,20 @@
           <a href="#">Create a data attribute </a><br />
           <a href="#">Upload a data attribute</a><br />
           <a href="#">List of all data attributes</a><br>
-          <button id="next_step_button">Next Step <i>yolo</i></button>
+          <a href="#"id="next_step_button">Next Step <img src="/arrow-right.svg" alt=""></a>
         </section>
 
         <article id="content">
-          <h1>Welcome to Docs 2.0</h1>
-          <button id="feedback_button"><i></i> Give feedback</button>
+          <h1>Welcome to Docs 2.0 </h1>
+          <a href="#"id="feedback_button"><img src="/message-circle.svg" alt="message circle"> Give feedback</a>
+          
+          
           <div id="author_description">
-            <img src="#" alt="Marrisa Lynch" /> by <a href="#">Marissa Lynch</a><i></i>
-            <p>Last Updated: Mar 10,2020</p>
+            <img src="/ml.png" alt="Marrisa Lynch" />
+            <span>by  <a href="#">Marissa Lynch <span id="middot">&middot;</span> </a>
+            
+              <span>Last Updated: Mar 10,2020</span> 
+            </span>
           </div>
           <p>
             Welcome to Ehya Cloud development! This tutorial will help you learn
@@ -63,17 +70,20 @@
             Cloud, including Jira Software, Ehya Service Desk, and Ehya Core.
             Designspace Connect is our recommended framework for extending Ehya
             Cloud as it handles discovery, installation, authentication, and
-            seamless integration into the Ehya user interface. By the end of
+            seamless integration into the Ehya user interface. <br><br>
+            By the end of
             this tutorial you'll have everything you need to start developing
             for Cloud. This includes setting up your local development
             environment for Designspace Connect, getting a Cloud development
             instance, and validating your setup by building and deploying a
-            basic Hello World app. Note, this tutorial is for developing on Ehya
+            basic Hello World app.  <br><br>
+            Note, this tutorial is for developing on Ehya
             Cloud. If you want to develop for Server then checkout the Getting
             started guide for server app development.
-          </p>
+          </p> <br>
 
           <h3 id="before_you_begin">Before you begin</h3>
+          
           <p>
             You'll need the following things to develop for Ehya Cloud: <br />
 
