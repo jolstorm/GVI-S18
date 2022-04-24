@@ -91,20 +91,20 @@
             apps. <br />
             A local development environment for creating apps.br
           </p>
-
+          <br>
           <h3>Step 2.0: Enable development mode</h3>
           <p>
             Now we'll enable development mode for your Designspace Cloud
             instance. Development mode gives you the ability to install apps
-            that are not from the Atlassian Marketplace. <br />
+            that are not from the Atlassian Marketplace. <br /><br>
             1. Navigate to <strong> Ehya settings</strong> (cog icon) >
             <strong> Apps</strong> > <strong> Manage Apps.</strong> <br />
             2. Scroll to the bottom of the Manage apps page, and click
             Settings(1). <br />
             3. Select Enable development mode (2), and click Apply.
           </p>
-          <img src="" alt="Settings view" />
-          <h3>Set up your local development environment</h3>
+          <img id="settings_image" src="/Settings.png" alt="Settings view" />
+          <h3>Step 3. Set up your local development environment</h3>
           <p>
             If you install an Atlassian Connect app in an Atlassian Cloud
             instance, the app is usually hosted elsewhere (for example, a cloud
@@ -113,28 +113,31 @@
             available over the internet using tunneling (via HTTPS). This allows
             you to work locally, but test against your Atlassian Cloud instance.
             <br /><br />
-            1. On your command line, run the following: <br />
-            <p><span>1</span>npm install -g ngrok</p>
-            2.Verify that ngrok is installed correctly by running the following command
-            <p><span>2</span>ehya-setting <a href="">help</a></p>
+            1. On your command line, run the following: 
+            <!-- <div class="commands_container"><span>1</span>  <span class="command">npm install -g ngrok</span> </div> -->
+            <div class="commands_container"><div class="cnum">1</div><div class="command">npm install -g ngrok</div></div> 
+            2.Verify that ngrok is installed correctly by running the following command <br> <br>
+            <!-- <div class="commands_container"><span > 2</span>   <span>ehya-setting</span> -->
+              <div class="commands_container"><div class="cnum">2</div><div class="command">ehya-setting <a href="">help</a></div></div>
+             <!-- <a href="">help</a></div> -->
             We'll show you how to use ngrok to make your app available to the internet later in this tutorial.
-          </p>
+          </p> <br> <br>
           <h3>Build a basic app</h3>
           <p>Now let's build a simple Designspace Connect app. This part of the tutorial gives you a hands-on introduction to Designspace Connect and validates that your development environment is set up correctly. <br><br>
 
             Let's create a project directory and define your app descriptor. The app defined in the sample code below uses a generalPages module, and adds a link titled Greeting to the Ehya sidebar. <br><br>
             
                 1. Create a project directory for your app's source files.	2. In the project directory, create a new file named atlassian-connect.json with the following contents:</p>
-                <img src="#" alt="Basic app code"height:100px width:100px>
+                <img src="/Basiccode.png" alt="Basic app code" id="basic_code_image">
                 <p>	3. Save the descriptor file. <br>
-                    4. (optional) Validate your descriptor using the <a href="#">Designspace Connect validator</a>  . This handy tool shows you 	     any errors in your app descriptor, such as missing properties or syntax errors.</p>
+                    4. (optional) Validate your descriptor using the <a href="#">Designspace Connect validator</a>  . This handy tool shows you 	     any errors in your app descriptor, such as missing properties or syntax errors.</p><br><br>
                     <h3>Make the app files available to the internet</h3>
                     <p>
                         Now that your app is hosted on a local web server, let's use ngrok to make it available over the internet. <br><br>
 
 You'll see a status page on your command line that shows the public URL of your tunnel and other information about connections made over your tunnel. If your app is not running when you try to start ngrok, you'll see a "Failed to complete tunnel connection" message.
                     </p>
-                    <img src="#" alt="Network details in Ehya designspace">
+                    <img src="/NetworkSettings.png" alt="Network details in Ehya designspace" id="network_details_image">
                     <h3>Install and test your app</h3>
                     <p>
                         We're nearly there! The final step in deploying your app is to install it in your Atlassian Cloud instance. You'll do this by adding a link to your app's descriptor file from your Atlassian Cloud instance. This allows Jira to install your app. <br><br>
@@ -142,7 +145,7 @@ You'll see a status page on your command line that shows the public URL of your 
 	1. Navigate to Ehya in your Atlassian Cloud instance, then choose  <strong>Ehya settings</strong>  (cog icon) > <strong>Apps</strong> <br>
 	2. Click  <strong>Upload app</strong>. <br>
 	3. Click <strong>Greeting</strong> . The Hello World message displays. <br><br>
-    <img src="#" alt="Designspace navbar"><br><br>
+    <img src="/designspace-nav.png" alt="Designspace navbar" id="des_space_nav"><br><br>
 
 
 
@@ -155,12 +158,12 @@ You'll see a status page on your command line that shows the public URL of your 
     <section id="other_links">
         <div class="container">
         <div >
-            <img src="#" alt="ehya logo"><br>
+            <img src="/logo.png" alt="ehya logo">
             <p>Build a modern and creative website with crealand</p>
-            <i></i>
-            <i></i>
-            <i></i>
-            <i></i>
+            <a href="#" class="social_media_links"><img src="/Google.png" alt="google logo"></a>
+            <a href="#" class="social_media_links"><img src="/Twitter.png" alt="twitter logo"></a>
+              <a href="#" class="social_media_links"><img src="/Instagram.png" alt="instagram logo"></a>
+              <a href="#" class="social_media_links"><img src="/LinkedIn.png" alt="linkedin logo"></a>
         </div>
         <div>
             <ul>
@@ -207,7 +210,7 @@ You'll see a status page on your command line that shows the public URL of your 
     
 
     <footer>
-        <i>Yolo</i><br>
+        <div><img src="/heart.svg" alt="heart"></div>
         Copyright &#169; 2019.Crafted with love.
     </footer>
   </body>
