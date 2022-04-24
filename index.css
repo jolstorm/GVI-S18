@@ -257,9 +257,20 @@ img + span {
   display: inline-block;
   height: 30px;
   width: 30px;
-
+  background: rgb(90, 113, 132, 0.2);
+  margin-right: 10px;
   border-radius: 2000px;
   margin-top: 25px;
+  position: relative;
+  bottom: 5px;
+}
+.social_media_links img {
+  position: absolute;
+  /* border: 1px solid black; */
+  height: 15px;
+  width: 15px;
+  top: 25%;
+  left: 28%;
 }
 
 #other_links .container {
