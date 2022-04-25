@@ -1,0 +1,11 @@
+div {
+  background: rgb(13, 42, 42);
+  height: 300px;
+}
+.bg-violet {
+  background: rgb(7, 19, 112);
+}
+
+.bg-orange {
+  background: rgb(217, 141, 10);
+}
