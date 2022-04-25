@@ -277,15 +277,19 @@ img + span {
   display: flex;
   justify-content: space-between;
 }
+
 #other_links ul {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
   list-style-type: none;
 
   margin-top: 0px;
-  padding-top: 10px;
+}
+
+#other_links ul :first-child {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+
+  margin-top: 0px;
 }
 
 #other_links li {
