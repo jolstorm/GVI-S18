@@ -1,0 +1,90 @@
+ul {
+  margin: 20px 10px;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+li {
+  padding: 5px 0;
+}
+.code_container {
+  /* border: 1px solid black; */
+  overflow: hidden;
+  width: max-content;
+}
+
+/* To use li for large numbers width needs to be */
+.serial_number {
+  /* border: 1px solid black; */
+  background: rgb(179, 186, 197, 0.4);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  width: max-content;
+  float: left;
+}
+
+.code {
+  width: max-content;
+  float: left;
+  background: rgb(179, 186, 197, 0.2);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 0;
+}
+
+.code ul {
+  margin-right: 100px;
+}
+/* The list-style-type column is kinda removed(check) when the padding is added to ul */
+.serial_number li {
+  /* border: 1px solid black; */
+  text-align: center;
+}
+
+.code li {
+  margin: 0 auto;
+  /* border: 1px solid black; */
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+}
+
+table tr:first-child td:first-child {
+  padding-top: 25px;
+  border-top-left-radius: 30px;
+}
+table tr:first-child td:last-child {
+  border-top-right-radius: 30px;
+  padding-top: 25px;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 30px;
+  padding-bottom: 25px;
+}
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 30px;
+  padding-bottom: 25px;
+}
+
+/* table tr .top-row {
+  padding-top: 30px;
+} */
+tr td:first-of-type {
+  background: rgb(179, 186, 197, 0.4);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+tr td:last-of-type {
+  /* border: 1px solid black; */
+  background: rgb(179, 186, 197, 0.2);
+  padding-left: 1rem;
+  padding-right: 5rem;
+}
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
