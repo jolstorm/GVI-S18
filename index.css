@@ -1,0 +1,23 @@
+.cl1 {
+  color: red;
+}
+.cl2 {
+  color: grey;
+}
+.cl3 {
+  color: magenta;
+}
+.cl1 .cl2 .cl3 {
+  color: rgb(46, 46, 8);
+}
+
+.cl2 .cl3 {
+  color: yellow;
+}
+
+.cl1 .cl3 {
+  color: blue;
+}
+.cl1 .cl2 {
+  color: purple;
+}
