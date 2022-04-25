@@ -196,12 +196,25 @@
         // let selectedSauces = [];
         // checkboxes.forEach((checkbox) => {
         //   selectedSauces.push(checkbox.value);
-        //
         // });
 
         // if (selectedSauces.length < 4) {
         //   alert("Select atleast 4 sauces");
-        // }else{
+        // } else {
+        //   details.sauces = selectedSauces;
+        // }
+
+        //Checkbox validation different method: document.forms
+        // const sauces = document.forms["form1"]["sauces"];
+        // let selectedSauces = [];
+        // for (sauce of sauces) {
+        //   if (sauce.checked) {
+        //     selectedSauces.push(sauce.value);
+        //   }
+        // }
+        // if (selectedSauces.length < 4) {
+        //   alert("Select atleast 4 sauces");
+        // } else {
         //   details.sauces = selectedSauces;
         // }
 
@@ -217,7 +230,8 @@
       }
 
       //Getting input element and adding event listener
-      const fileInput = document.getElementById("file_upload");
+      //const fileInput = document.getElementById("file_upload");
+      const fileInput = document.forms["form1"]["file_upload"];
       const fileInputButton = document.getElementById("file_upload_button");
       const remove_file_button = document.querySelector("#remove_file_button");
       const uploadedFileName = document.getElementById("uploaded_file_name");
@@ -227,7 +241,9 @@
       fileInput.addEventListener("change", (e) => {
         fileInputButton.style.display = "none";
         //Adding file name to button
-        uploadedFileName.innerHTML = `${e.target.files[0].name}`;
+
+        // uploadedFileName.innerHTML = `${e.target.files[0].name}`;
+        uploadedFileName.innerHTML = `${fileInput.files[0].name}`;
 
         details.fileName = e.target.files[0].name;
         remove_file_button.style.removeProperty("display");
