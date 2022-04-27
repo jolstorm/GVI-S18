@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>eyha</title>
     <link rel="stylesheet" href="/index.css" />
-    <!-- <script src="https://kit.fontawesome.com/3c8d6efe79.js" crossorigin="anonymous"></script> -->
   </head>
   <body>
     <header>
@@ -134,7 +133,59 @@
             Settings(1). <br />
             3. Select Enable development mode (2), and click Apply.
           </p>
-          <img id="settings_image" src="/Settings.png" alt="Settings view" />
+          <div id="settings-image">
+            <div id="left">
+              <strong class="text-color-white">Designspace</strong>
+      
+              <p class="text-color-white">
+                <img src="./plus-square.svg" alt="plus square" /> Add ons
+              </p>
+              <p  class="text-color-white">
+                Find more Add-ons
+              </p>
+              <p
+                class="text-color-white"
+                style="padding-bottom: 30px; border-bottom: 1px solid #2f4e67"
+              >
+                Manage Add-ons
+              </p>
+              <p class="text-color-white">App Management</p>
+              <p class="text-color-white">Account</p>
+            </div>
+            <div id="right">
+              <!-- <p class="text-color-183b56"> <strong>
+                  Settings</strong> <i></i></p> -->
+                  <div style="height:max-content">
+                <strong class="text-color-183b56">Settings</strong>
+                <img src="./search.svg" alt="search icon"   height="16" />
+              </div>
+                  <div>
+                    <div class="checkbox"></div>
+                    <strong class="text-color-183b56"> Enable Development Mode </strong>
+                  </div>
+                <p
+                  class="text-color-5a7184"
+                  
+                >
+                  Many reasons why customer choose us than other ecommerce. We have some
+                  plus point that maybe other can’t have.
+                </p>
+        
+                <div class="checkbox"></div>
+                <strong class="text-color-183b56"> Enable Private Listings </strong>
+                <p
+                  class="text-color-5a7184"
+                  
+                >
+                  Many reasons why customer choose us than other ecommerce. We have some
+                  plus point that maybe other can’t have.
+                </p>
+                  
+                    <button id="apply-change">Apply Changes</button>
+                    <button id="cancel">Cancel</button>
+                  
+              </div>
+            </div>
           <h3>Step 3. Set up your local development environment</h3>
           <p>
             If you install an Atlassian Connect app in an Atlassian Cloud
@@ -183,79 +234,56 @@
             2. In the project directory, create a new file named
             atlassian-connect.json with the following contents:
           </p>
-          <!-- <img
-            src="/Basiccode.png"
-            alt="Basic app code"
-            id="basic_code_image"
-          /> -->
 
-          <table id="basic_code">
-            <tr>
-                <td >1</td>
-                <td >{</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>"name": "Hello World",</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>"description": "Atlassian Connect app",</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>"key": "com.example.myapp",</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>"baseUrl": "https://<placeholder-url>",</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>"vendor": {</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>"name": "Example, Inc.",</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>"url": "http://example.com"</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>},</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>"authentication": {</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>"type": "none"</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>,</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>"apiVersion": 1,</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>"modules": {</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>"generalPages": [</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>{</td>
-            </tr>
+          <div id="code-container">
+            <div class="serial-number">
+                <ul>
+
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                    <li>12</li>
+                    <li>13</li>
+                    <li>14</li>
+                    <li>15</li>
+                    <li>160099990</li>
+                  
+                </ul>
+            </div>
+   
+            <div class="code">
+              <ul>
+
+                <li>{</li>
+                <li>"name": "Hello World",</li>
+                <li>"description": "Atlassian Connect app",</li>
+                <li>"key": "com.example.myapp",</li>
+                <li>"baseUrl": "https://<placeholder-url>",</li>
+                <li>"vendor": {</li>
+                <li>"name": "Example, Inc.",</li>
+                <li>"url": "http://example.com"</li>
+                <li>},</li>
+                <li>"authentication": {</li>
+                <li> "type": "none"</li>
+                <li>},</li>
+                <li>"apiVersion": 1,</li>
+                <li>"modules": {</li>
+                <li>"generalPages": [</li>
+                <li>    {</li>
+                
             
-        </table>
+              </ul>
+            </div>
+          </div>
+
           <p>
             3. Save the descriptor file. <br />
             4. (optional) Validate your descriptor using the
@@ -275,11 +303,37 @@
             your tunnel. If your app is not running when you try to start ngrok,
             you'll see a "Failed to complete tunnel connection" message.
           </p>
-          <img
-            src="/NetworkSettings.png"
-            alt="Network details in Ehya designspace"
-            id="network_details_image"
-          />
+
+          <div id="network">
+            <div>
+              <ul>
+                <li>Ehya by Designspace</li>
+                <li class="text-green br-right">Session status</li>
+                <li class="br-right">Session Expires</li>
+                <li class="br-right">Version</li>
+                <li class="br-right">Region</li>
+                <li class="br-right">Web Interface</li>
+                <li class="br-right">Forwarding</li>
+                <li class="br-right">Connections</li>
+              </ul>
+            </div>
+            <div>
+              <ul>
+                <li class="align-right">(Ctrl + C to quit)</li>
+                <li class="text-green">Online</li>
+                <li>7 hours, 72 minutes</li>
+                <li>3.1.8</li>
+                <li>United States(us)</li>
+                <li>https://120.0.0.1/8712</li>
+                <li>http://4151yua.ehya.io--localhost:6000</li>
+                <li>
+                  ttl opn rt1 rt5 p50 p90 <br />
+                  0 0 0.00 0.00 0.00 0.00
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <h3>Install and test your app</h3>
           <p>
             We're nearly there! The final step in deploying your app is to
@@ -294,13 +348,21 @@
             2. Click <strong>Upload app</strong>. <br />
             3. Click <strong>Greeting</strong> . The Hello World message
             displays. </p>
-            <img
-              src="/designspace-nav.png"
-              alt="Designspace navbar"
-              id="des_space_nav"
-            />
-            <p>
-
+            
+            
+              <div id="nav-bar-image">
+                <ul>
+                  <li style="font-size: 30px">Designspace</li>
+                  <li><img src="./dashboard.png" alt="home" />Dashboard</li>
+                <li><img src="./folder.svg" alt="projects" />Projects</li>
+                  <li><img src="./sliders.svg" alt="slider" />Issues</li>
+                  <li>
+                    <img src="./settings.svg" alt="settings" />Settings
+                  </li>
+                  <li><img src="./disc.svg" alt="install" />Install</li>
+                </ul>
+              </div>
+              <p>
             Congratulations! You've set up a development environment and built
             your first app.
           </p>

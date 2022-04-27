@@ -144,21 +144,19 @@ td {
   border-radius: 16px;
 }
 
-/* li:last-child {
-  comment out
+#network li:last-child {
   padding-top: 30px;
-} */
+}
 
-.align-right {
+#network .align-right {
   width: 450px;
   text-align: right;
 }
-/* li {
-  comment out
+#network li {
   padding: 0 20px 20px 20px;
-} */
+}
 
-.br-right {
+#network .br-right {
   border-right: 1px solid #2f4e67;
 }
 
@@ -175,20 +173,20 @@ td {
 .text-color-white {
   color: white;
 }
-#settings {
+#settings-image {
   display: flex;
   width: max-content;
   box-shadow: 0px 28px 32px rgba(0, 0, 0, 0.06);
 }
 
-#left {
+#settings-image #left {
   padding: 0 20px 50px 20px;
 
   background: #183b56;
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
 }
-#right {
+#settings-image #right {
   padding: 0 30px 50px 30px;
 
   width: 600px;
@@ -196,7 +194,7 @@ td {
   border-top-right-radius: 32px;
   border-bottom-right-radius: 32px;
 }
-#settings div strong:first-child {
+#settings-image div strong:first-child {
   display: inline-block;
   font-weight: 600;
   font-size: 20px;
@@ -206,14 +204,14 @@ td {
   padding: 0px !important;
 }
 
-#left img {
+#settings-image #left img {
   /* border: 1px solid black; */
   position: relative;
   top: 5px;
   margin-right: 10px;
 }
 
-.checkbox {
+#settings-image .checkbox {
   display: inline-block;
   width: 15px;
   height: 15px;
@@ -221,11 +219,11 @@ td {
   border-radius: 5px;
 }
 
-#left p {
+#settings-image #left p {
   padding: 10px 60px 10px 10px;
 }
 
-button {
+#settings-image button {
   height: 10%;
   width: 25%;
   background: transparent;
@@ -255,26 +253,26 @@ button:hover {
 } */
 
 /* Navbar image */
-ul {
+#nav-bar-image ul {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
 }
-li {
+#nav-bar-image li {
   display: inline-block;
   /* border: 1px solid black; */
   margin: 10px 0px;
   padding: 10px 20px;
 }
-#nav-bar li:first-of-type {
+#nav-bar-image li:first-of-type {
   padding-right: 50px;
 }
 
-#nav-bar li:last-of-type {
+#nav-bar-image li:last-of-type {
   background: rgb(255, 255, 255, 0.1);
   border-radius: 5px;
 }
-#nav-bar {
+#nav-bar-image {
   width: 90%;
 
   padding: 0px;
@@ -282,7 +280,7 @@ li {
   background: #183b56;
   border-radius: 16px;
 }
-#nav-bar img {
+#nav-bar-image img {
   position: relative;
   top: 2px;
   margin-right: 10px;
