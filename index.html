@@ -73,7 +73,7 @@
               <a href="#">Next Step <img src="./arrow-right.svg" alt="" /></a>
             </li>
           </ul>
-          </section>
+        </section>
         <article id="content">
           <h1>Welcome to Docs 2.0</h1>
           <a href="#" id="feedback_button"
@@ -97,7 +97,6 @@
             Designspace Connect is our recommended framework for extending Ehya
             Cloud as it handles discovery, installation, authentication, and
             seamless integration into the Ehya user interface.
-            
           </p>
 
           <p>
@@ -107,7 +106,7 @@
             development instance, and validating your setup by building and
             deploying a basic Hello World app.
           </p>
-          
+
           <p>
             Note, this tutorial is for developing on Ehya Cloud. If you want to
             develop for Server then checkout the Getting started guide for
@@ -116,20 +115,22 @@
 
           <h3 id="before_you_begin">Before you begin</h3>
 
-          <p>
-            You'll need the following things to develop for Ehya Cloud: </p>
+          <p>You'll need the following things to develop for Ehya Cloud:</p>
 
-           <p> A developer instance of Atlassian Cloud for testing and validating
+          <p>
+            A developer instance of Atlassian Cloud for testing and validating
             apps. <br />
             A local development environment for creating apps.
           </p>
-          
+
           <h3>Step 2.0: Enable development mode</h3>
           <p>
             Now we'll enable development mode for your Designspace Cloud
             instance. Development mode gives you the ability to install apps
-            that are not from the Atlassian Marketplace. </p>
-           <p> 1. Navigate to <strong> Ehya settings</strong> (cog icon) >
+            that are not from the Atlassian Marketplace.
+          </p>
+          <p>
+            1. Navigate to <strong> Ehya settings</strong> (cog icon) >
             <strong> Apps</strong> > <strong> Manage Apps.</strong> <br />
             2. Scroll to the bottom of the Manage apps page, and click
             Settings(1). <br />
@@ -138,13 +139,11 @@
           <div id="settings-image">
             <div id="left">
               <strong class="text-color-white">Designspace</strong>
-      
+
               <p class="text-color-white">
                 <img src="./plus-square.svg" alt="plus square" /> Add ons
               </p>
-              <p  class="text-color-white">
-                Find more Add-ons
-              </p>
+              <p class="text-color-white">Find more Add-ons</p>
               <p
                 class="text-color-white"
                 style="padding-bottom: 30px; border-bottom: 1px solid #2f4e67"
@@ -157,37 +156,34 @@
             <div id="right">
               <!-- <p class="text-color-183b56"> <strong>
                   Settings</strong> <i></i></p> -->
-                  <div style="height:max-content">
+              <div style="height: max-content">
                 <strong class="text-color-183b56">Settings</strong>
-                <img src="./search.svg" alt="search icon"   height="16" />
+                <img src="./search.svg" alt="search icon" height="16" />
               </div>
-                  <div>
-                    <div class="checkbox"></div>
-                    <strong class="text-color-183b56"> Enable Development Mode </strong>
-                  </div>
-                <p
-                  class="text-color-5a7184"
-                  
-                >
-                  Many reasons why customer choose us than other ecommerce. We have some
-                  plus point that maybe other can’t have.
-                </p>
-        
+              <div>
                 <div class="checkbox"></div>
-                <strong class="text-color-183b56"> Enable Private Listings </strong>
-                <p
-                  class="text-color-5a7184"
-                  
-                >
-                  Many reasons why customer choose us than other ecommerce. We have some
-                  plus point that maybe other can’t have.
-                </p>
-                  
-                    <button id="apply-change">Apply Changes</button>
-                    <button id="cancel">Cancel</button>
-                  
+                <strong class="text-color-183b56">
+                  Enable Development Mode
+                </strong>
               </div>
+              <p class="text-color-5a7184">
+                Many reasons why customer choose us than other ecommerce. We
+                have some plus point that maybe other can’t have.
+              </p>
+
+              <div class="checkbox"></div>
+              <strong class="text-color-183b56">
+                Enable Private Listings
+              </strong>
+              <p class="text-color-5a7184">
+                Many reasons why customer choose us than other ecommerce. We
+                have some plus point that maybe other can’t have.
+              </p>
+
+              <button id="apply-change">Apply Changes</button>
+              <button id="cancel">Cancel</button>
             </div>
+          </div>
           <h3>Step 3. Set up your local development environment</h3>
           <p>
             If you install an Atlassian Connect app in an Atlassian Cloud
@@ -196,20 +192,19 @@
             it's easiest to develop it on your local machine and make it
             available over the internet using tunneling (via HTTPS). This allows
             you to work locally, but test against your Atlassian Cloud instance.
-            </p>
-            <p>
-            1. On your command line, run the following: </p>
-            <!-- <div class="commands_container"><span>1</span>  <span class="command">npm install -g ngrok</span> </div> -->
-         
+          </p>
+          <p>1. On your command line, run the following:</p>
+          <!-- <div class="commands_container"><span>1</span>  <span class="command">npm install -g ngrok</span> </div> -->
 
           <div class="commands_container">
             <div class="cnum">1</div>
             <div class="command">npm install -g ngrok</div>
           </div>
           <p>
-          2.Verify that ngrok is installed correctly by running the following
-          command </p>
-          
+            2.Verify that ngrok is installed correctly by running the following
+            command
+          </p>
+
           <!-- <div class="commands_container"><span > 2</span>   <span>ehya-setting</span> -->
           <div class="commands_container">
             <div class="cnum">2</div>
@@ -217,71 +212,67 @@
           </div>
           <!-- <a href="">help</a></div> -->
           <p>
-          We'll show you how to use ngrok to make your app available to the
-          internet later in this tutorial.
-        </p>
+            We'll show you how to use ngrok to make your app available to the
+            internet later in this tutorial.
+          </p>
           <h3>Build a basic app</h3>
           <p>
             Now let's build a simple Designspace Connect app. This part of the
             tutorial gives you a hands-on introduction to Designspace Connect
             and validates that your development environment is set up correctly.
-         </p>
-         <p>
+          </p>
+          <p>
             Let's create a project directory and define your app descriptor. The
             app defined in the sample code below uses a generalPages module, and
-            adds a link titled Greeting to the Ehya sidebar. </p>
+            adds a link titled Greeting to the Ehya sidebar.
+          </p>
 
-            <p>
-            1. Create a project directory for your app's source files. 
-            2. In the project directory, create a new file named
-            atlassian-connect.json with the following contents:
+          <p>
+            1. Create a project directory for your app's source files. 2. In the
+            project directory, create a new file named atlassian-connect.json
+            with the following contents:
           </p>
 
           <div id="code-container">
             <div class="serial-number">
-                <ul>
-
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                    <li>6</li>
-                    <li>7</li>
-                    <li>8</li>
-                    <li>9</li>
-                    <li>10</li>
-                    <li>11</li>
-                    <li>12</li>
-                    <li>13</li>
-                    <li>14</li>
-                    <li>15</li>
-                    <li>160099990</li>
-                  
-                </ul>
+              <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+                <li>12</li>
+                <li>13</li>
+                <li>14</li>
+                <li>15</li>
+                <li>160099990</li>
+              </ul>
             </div>
-   
+
             <div class="code">
               <ul>
-
                 <li>{</li>
                 <li>"name": "Hello World",</li>
                 <li>"description": "Atlassian Connect app",</li>
                 <li>"key": "com.example.myapp",</li>
-                <li>"baseUrl": "https://<placeholder-url>",</li>
+                <li>"baseUrl": "https://&lt;placeholder-url&gt;",</li>
                 <li>"vendor": {</li>
                 <li>"name": "Example, Inc.",</li>
                 <li>"url": "http://example.com"</li>
                 <li>},</li>
                 <li>"authentication": {</li>
-                <li> "type": "none"</li>
+                <li>"type": "none"</li>
                 <li>},</li>
                 <li>"apiVersion": 1,</li>
                 <li>"modules": {</li>
                 <li>"generalPages": [</li>
-                <li>    {</li>
-                
-            
+                <li>{</li>
               </ul>
             </div>
           </div>
@@ -289,17 +280,18 @@
           <p>
             3. Save the descriptor file. <br />
             4. (optional) Validate your descriptor using the
-            <a href="#" id="descon_link">Designspace Connect validator</a> . This handy tool
-            shows you any errors in your app descriptor, such as missing
-            properties or syntax errors.
+            <a href="#" id="descon_link">Designspace Connect validator</a> .
+            This handy tool shows you any errors in your app descriptor, such as
+            missing properties or syntax errors.
           </p>
-         
+
           <h3>Make the app files available to the internet</h3>
           <p>
             Now that your app is hosted on a local web server, let's use ngrok
-            to make it available over the internet. </p>
+            to make it available over the internet.
+          </p>
 
-            <p>
+          <p>
             You'll see a status page on your command line that shows the public
             URL of your tunnel and other information about connections made over
             your tunnel. If your app is not running when you try to start ngrok,
@@ -341,30 +333,29 @@
             We're nearly there! The final step in deploying your app is to
             install it in your Atlassian Cloud instance. You'll do this by
             adding a link to your app's descriptor file from your Atlassian
-            Cloud instance. This allows Jira to install your app. </p>
+            Cloud instance. This allows Jira to install your app.
+          </p>
 
-            <p>
+          <p>
             1. Navigate to Ehya in your Atlassian Cloud instance, then choose
             <strong>Ehya settings</strong> (cog icon) > <strong>Apps</strong>
             <br />
             2. Click <strong>Upload app</strong>. <br />
             3. Click <strong>Greeting</strong> . The Hello World message
-            displays. </p>
-            
-            
-              <div id="nav-bar-image">
-                <ul>
-                  <li style="font-size: 30px">Designspace</li>
-                  <li><img src="./dashboard.png" alt="home" />Dashboard</li>
-                <li><img src="./folder.svg" alt="projects" />Projects</li>
-                  <li><img src="./sliders.svg" alt="slider" />Issues</li>
-                  <li>
-                    <img src="./settings.svg" alt="settings" />Settings
-                  </li>
-                  <li><img src="./disc.svg" alt="install" />Install</li>
-                </ul>
-              </div>
-              <p>
+            displays.
+          </p>
+
+          <div id="nav-bar-image">
+            <ul>
+              <li style="font-size: 30px">Designspace</li>
+              <li><img src="./dashboard.png" alt="home" />Dashboard</li>
+              <li><img src="./folder.svg" alt="projects" />Projects</li>
+              <li><img src="./sliders.svg" alt="slider" />Issues</li>
+              <li><img src="./settings.svg" alt="settings" />Settings</li>
+              <li><img src="./disc.svg" alt="install" />Install</li>
+            </ul>
+          </div>
+          <p>
             Congratulations! You've set up a development environment and built
             your first app.
           </p>
