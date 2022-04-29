@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac_Toe</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="player">
+        <h3>Player 1</h3>
+        <form action="#" name="pl1" onsubmit=" return f1()">
+          <label for="pl1name">Enter name</label>
+          <input type="text" id="pl1name" />
+
+          <p>Select SYmbol</p>
+          <select name="pl1symbol" id="pl1symbol">
+            <option value="none" selected disabled hidden></option>
+            <option value="O">O</option>
+            <option value="X">X</option>
+          </select>
+
+          <input type="submit" />
+        </form>
+      </div>
+      <div id="grid">
+        <div id="lc"></div>
+        <div id="mc"></div>
+        <div id="rc"></div>
+        <div id="tr"></div>
+        <div id="mr"></div>
+        <div id="br"></div>
+        <div id="ld"></div>
+        <div id="rd"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+        <div class="blocks"></div>
+      </div>
+      <div class="player">
+        <h3>Player 2</h3>
+        <form action="#" name="pl2" onsubmit="return f2()">
+          <label for="pl2name">Enter name</label>
+          <input type="text" id="pl2name" />
+
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let pl1 = {};
+      let pl2 = {};
+      let turn = "p1";
+      let line = {};
+      let gameStarted = false;
+      let gameFinshed = false;
+
+      function f1() {
+        const pl1name = document.forms["pl1"]["pl1name"].value;
+        const pl1symbol = document.forms["pl1"]["pl1symbol"].value;
+        // console.log(pl1name, pl1symbol);?
+        pl1.name = pl1name;
+        pl1.symbol = pl1symbol;
+
+        return false;
+      }
+
+      function f2() {
+        if (pl1.symbol) {
+          const pl2name = document.forms["pl2"]["pl2name"].value;
+          pl2.name = pl2name;
+          pl2.symbol = pl1.symbol == "O" ? "X" : "O";
+          gameStarted = true;
+        } else {
+          alert("Enter name and select symbol for player 1 first");
+        }
+
+        return false;
+      }
+
+      const blocks = document.querySelectorAll(".blocks");
+
+      blocks.forEach((block) => {
+        block.addEventListener("click", () => {
+          if (gameStarted && !gameFinshed) {
+            block.innerHTML = `${turn == "p1" ? pl1.symbol : pl2.symbol}`;
+            check();
+          } else if (gameStarted && gameFinshed) {
+            alert("Game is finished");
+          } else {
+            alert("Enter player details");
+          }
+        });
+      });
+
+      function check() {
+        const symbol = `${turn == "p1" ? pl1.symbol : pl2.symbol}`;
+
+        //Checking rows
+        for (let i = 0; i < 9; i = i + 3) {
+          if (
+            blocks[i].innerHTML == symbol &&
+            blocks[i + 1].innerHTML == symbol &&
+            blocks[i + 2].innerHTML == symbol
+          ) {
+            gameFinshed = true;
+            line.d = "r";
+            line.n = i;
+            break;
+          }
+        }
+
+        //Checking columns
+        for (let i = 0; i < 3; i = i + 1) {
+          if (
+            blocks[i].innerHTML == symbol &&
+            blocks[i + 3].innerHTML == symbol &&
+            blocks[i + 6].innerHTML == symbol
+          ) {
+            gameFinshed = true;
+            line.d = "c";
+            line.n = i;
+            break;
+          }
+        }
+
+        //Left diagonal
+        if (
+          blocks[0].innerHTML == symbol &&
+          blocks[4].innerHTML == symbol &&
+          blocks[8].innerHTML == symbol
+        ) {
+          gameFinshed = true;
+          line.d = "ld";
+        }
+
+        //Right Diagonal
+        if (
+          blocks[2].innerHTML == symbol &&
+          blocks[4].innerHTML == symbol &&
+          blocks[6].innerHTML == symbol
+        ) {
+          gameFinshed = true;
+          line.d = "rd";
+        }
+
+        if (gameFinshed) {
+          displayResults(gameFinshed);
+        } else {
+          turn = turn == "p1" ? "p2" : "p1";
+        }
+      }
+
+      function displayResults(gameFinished) {
+        if (gameFinished) {
+          if (line.d == "c" && line.n == 0) {
+            showLine("lc");
+          } else if (line.d == "c" && line.n == 1) {
+            showLine("mc");
+          } else if (line.d == "c" && line.n == 2) {
+            showLine("rc");
+          } else if (line.d == "r" && line.n == 0) {
+            showLine("tr");
+          } else if (line.d == "r" && line.n == 3) {
+            showLine("mr");
+          } else if (line.d == "r" && line.n == 6) {
+            showLine("br");
+          } else if (line.d == "ld") {
+            showLine("ld");
+          } else {
+            showLine("rd");
+          }
+          // console.log(`${turn == "p1" ? pl1.name : pl2.name} wins`);
+        }
+      }
+
+      function showLine(line) {
+        if (line.charAt(1) == "c") {
+          document.getElementById(line).style.height = "100%";
+        } else if (line.charAt(1) == "r") {
+          document.getElementById(line).style.width = "100%";
+        } else {
+          document.getElementById(line).style.height = "225%";
+        }
+      }
+    </script>
+  </body>
+</html>

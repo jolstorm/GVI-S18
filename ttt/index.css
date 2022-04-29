@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player {
+  width: 20%;
+  height: 30%;
+  border: 1px solid black;
+}
+
+#grid {
+  width: 50%;
+  height: 50%;
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+
+.blocks {
+  width: 33%;
+  height: 33%;
+  border: 1px solid black;
+  text-align: center;
+
+  padding: 20px 0px;
+  font-size: 3rem;
+}
+
+#rd {
+  position: absolute;
+  height: 0%;
+  width: 10px;
+  background: black;
+
+  right: 0;
+  transform-origin: 0 0;
+  transform: rotate(65deg);
+  transition: height 3s linear 0.5s;
+}
+
+#ld {
+  position: absolute;
+  height: 0%;
+  width: 10px;
+  background: black;
+
+  left: 0;
+  top: 10px;
+  transform-origin: 0 0;
+  transform: rotate(-65deg);
+  transition: height 3s linear 0.5s;
+}
+
+#lc {
+  position: absolute;
+  height: 0%;
+  width: 10px;
+  background: black;
+  left: 16.5%;
+
+  transition: height 3s linear 0.5s;
+}
+
+#mc {
+  position: absolute;
+  height: 0%;
+  width: 10px;
+  background: black;
+  left: 48.5%;
+
+  transition: height 3s linear 0.5s;
+}
+
+#rc {
+  position: absolute;
+  height: 0%;
+  width: 10px;
+  background: black;
+  left: 82.5%;
+
+  transition: height 3s linear 0.5s;
+}
+
+#tr {
+  position: absolute;
+  width: 0%;
+  height: 10px;
+  background: black;
+  top: 16.5%;
+
+  transition: width 3s linear 0.5s;
+}
+
+#mr {
+  position: absolute;
+  width: 0%;
+  height: 10px;
+  background: black;
+  top: 48.5%;
+
+  transition: width 3s linear 0.5s;
+}
+
+#br {
+  position: absolute;
+  width: 0%;
+  height: 10px;
+  background: black;
+  top: 82.5%;
+
+  transition: width 3s linear 0.5s;
+}
