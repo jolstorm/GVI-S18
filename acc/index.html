@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordions</title>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="accordion">
+      <div>
+        <h1 class="acc">Section 1</h1>
+        <button>drop</button>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        earum pariatur placeat eius nobis, nemo iste dicta alias atque
+        reprehenderit ratione facilis repellendus in vitae facere ex expedita
+        voluptates! Similique deleniti eos dicta, ex architecto reiciendis
+        deserunt? Vitae laboriosam corrupti totam voluptatibus? Quisquam,
+        dignissimos laborum earum architecto consequatur id debitis.
+      </p>
+    </div>
+    <div class="accordion">
+      <div>
+        <h1 class="acc">Section 2</h1>
+        <button>drop</button>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        earum pariatur placeat eius nobis, nemo iste dicta alias atque
+        reprehenderit ratione facilis repellendus in vitae facere ex expedita
+        voluptates! Similique deleniti eos dicta, ex architecto reiciendis
+        deserunt? Vitae laboriosam corrupti totam voluptatibus? Quisquam,
+        dignissimos laborum earum architecto consequatur id debitis.
+      </p>
+    </div>
+    <div class="accordion">
+      <div>
+        <h1 class="acc">Section 3</h1>
+        <button>drop</button>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
+        earum pariatur placeat eius nobis, nemo iste dicta alias atque
+        reprehenderit ratione facilis repellendus in vitae facere ex expedita
+        voluptates! Similique deleniti eos dicta, ex architecto reiciendis
+        deserunt? Vitae laboriosam corrupti totam voluptatibus? Quisquam,
+        dignissimos laborum earum architecto consequatur id debitis.
+      </p>
+    </div>
+    <div class="graph-container">
+      <div class="graph">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+      </div>
+      <div class="y-legend">
+        <span>Lorem.</span>
+        <span>Lorem, ipsum.</span>
+        <span>Lorem, ipsum dolor.</span>
+        <span>Lorem ipsum dolor sit.</span>
+        <span>Lorem ipsum dolor sit amet.</span>
+      </div>
+    </div>
+
+    <div class="animation-container">
+      <div class="pole"></div>
+      <div class="circle"></div>
+    </div>
+    <script>
+      const buttons = document.getElementsByTagName("button");
+      for (const button of buttons) {
+        button.addEventListener("click", () => {
+          button.parentNode.parentNode.classList.toggle("expand");
+          if (button.innerText.startsWith("drop")) {
+            button.classList.toggle("opa");
+            setTimeout(() => {
+              button.innerText = "close";
+              button.classList.toggle("opa");
+            }, 500);
+          } else {
+            button.classList.toggle("opa");
+            setTimeout(() => {
+              button.innerText = "drop";
+              button.classList.toggle("opa");
+            }, 500);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

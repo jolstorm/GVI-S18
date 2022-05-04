@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body > div {
+  margin: 0 auto;
+}
+
+#ship-selector {
+  height: 500px;
+  width: 500px;
+  border: 1px solid black;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+#ship {
+  position: absolute;
+  border: 5px solid black;
+  text-align: center;
+  font-size: 3rem;
+  width: 440px;
+  top: 40%;
+  left: 5%;
+}
+
+.rotate {
+  transform: rotate(-90deg);
+}
+#rotate-button {
+  position: absolute;
+  bottom: 0;
+  right: 225px;
+}
+#grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  background: darkblue;
+  width: max-content;
+  padding: 10px;
+}
+
+.grid-block {
+  height: 80px;
+  width: 80px;
+  background: lightskyblue;
+  /* border:1px solid black */
+}
+
+.br-grey {
+  /* border: 2px solid grey; */
+  background: black;
+}
+
+[value="J10"] {
+  background: black;
+}
