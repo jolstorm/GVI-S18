@@ -9,7 +9,7 @@ body > div {
 
 #ship-selector {
   height: 500px;
-  width: 500px;
+  width: 600px;
   border: 1px solid black;
   position: relative;
   margin-bottom: 30px;
@@ -21,8 +21,25 @@ body > div {
   text-align: center;
   font-size: 3rem;
   width: 440px;
+  top: 35%;
+  left: 15%;
+}
+
+#prev-ship {
+  position: absolute;
+  left: 0;
   top: 40%;
-  left: 5%;
+}
+
+#next-ship {
+  position: absolute;
+  right: 0;
+  top: 40%;
+}
+
+#prev-ship:hover,
+#next-ship:hover {
+  cursor: pointer;
 }
 
 .rotate {
@@ -31,8 +48,11 @@ body > div {
 #rotate-button {
   position: absolute;
   bottom: 0;
-  right: 225px;
+  right: 35%;
+  height: 50px;
+  width: 150px;
 }
+
 #grid {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
@@ -55,6 +75,6 @@ body > div {
   background: black;
 }
 
-[value="J10"] {
+/* [value*="J"] {
   background: black;
-}
+} */

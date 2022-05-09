@@ -1,38 +1,163 @@
-const rotateBtn = document.getElementById("rotate-button");
 const ship = document.getElementById("ship");
+const prevship = document.getElementById("prev-ship");
+const nextship = document.getElementById("next-ship");
+const rotateBtn = document.getElementById("rotate-button");
+
+let ships = {
+  carrier: { size: 5, orientation: "H", coordinates: [] },
+  battleship: { size: 4, orientation: "H", coordinates: [] },
+  cruiser: { size: 3, orientation: "H", coordinates: [] },
+  submarine: { size: 3, orientation: "H", coordinates: [] },
+  destroyer: { size: 2, orientation: "H", coordinates: [] },
+};
+
+let count = 0;
+let shipnames = Object.keys(ships);
+let shiporientation = "H";
+let selectedship = shipnames[count];
+ships[selectedship].orientation = shiporientation;
+ship.innerText = selectedship;
+
 rotateBtn.addEventListener("click", () => {
   ship.classList.toggle("rotate");
+  if (shiporientation == "H") {
+    shiporientation = "V";
+  } else {
+    shiporientation = "H";
+  }
+  ships[selectedship].orientation = shiporientation;
+  console.log(ships[selectedship].orientation);
 });
-ship.addEventListener("dragstart", (e) => {
-  //   e.preventDefault();
-  console.log("DragStart");
+
+prevship.addEventListener("click", () => {
+  if (count > 0) {
+    count--;
+    selectShip();
+  }
 });
-ship.addEventListener("dragend", (e) => {
-  //   e.preventDefault();
-  console.log("Dragend");
+
+nextship.addEventListener("click", () => {
+  if (count < shipnames.length - 1) {
+    count++;
+    selectShip();
+  }
 });
 
 const gridBlocks = document.querySelectorAll(".grid-block");
+
 for (const block of gridBlocks) {
-  block.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dragover.call(this);
+  block.addEventListener("mouseover", () => {
+    highlightBlocks.call(block);
   });
-  block.addEventListener("dragleave", dragleave);
+  block.addEventListener("mouseleave", () => {
+    removeHighlightedBlocks.call(block);
+  });
 }
 
-function dragover(block) {
-  console.log(block);
-  //   e.preventDefault();
-  if (this.classList.contains("br-grey")) {
-    // console.log("yes");
-    return;
-  } else {
-    this.classList += " br-grey";
+function highlightBlocks() {
+  if (shipnames.length > 0) {
+    const length = ships[selectedship].size;
+    const orientation = ships[selectedship].orientation;
+    const blockvalue = this.getAttribute("value");
+    const row = blockvalue.slice(0, 1);
+
+    let flag = true;
+    const column = Number(blockvalue.slice(1, length + 1));
+
+    let currentblock = this;
+
+    if (ships[selectedship].coordinates.length == 0) {
+      if (orientation == "H") {
+        if (10 - column >= length - 1) {
+          for (let i = column; i < length + column; i = i + 1) {
+            if (currentblock.classList.contains("br-grey")) {
+              console.log(currentblock);
+              flag = false;
+
+              break;
+            } else {
+              currentblock = currentblock.nextElementSibling;
+            }
+          }
+          // console.log(`Flag=${flag}`);
+          if (flag) {
+            currentblock = this;
+            currentblock.addEventListener("click", () => {
+              selectCoordinates.call(this, length, orientation, blockvalue);
+            });
+            for (let i = 0; i < length; i = i + 1) {
+              // console.log(currentblock.getAttribute("value"));
+              currentblock.classList += " br-grey";
+              currentblock = currentblock.nextElementSibling;
+            }
+          }
+        }
+      } else {
+        //Vertical orientation
+      }
+    }
   }
 }
 
-function dragleave(e) {
-  //   e.preventDefault();
-  this.classList.remove("br-grey");
+function removeHighlightedBlocks() {
+  if (shipnames.length > 0) {
+    const length = ships[selectedship].size;
+    let currentblock = this;
+
+    if (!currentblock.getAttribute("disabled")) {
+      for (let i = 0; i < length; i = i + 1) {
+        if (currentblock.classList.contains("br-grey")) {
+          // console.log(currentblock);
+          currentblock.classList.remove("br-grey");
+          //remove click event listener here
+          currentblock = currentblock.nextElementSibling;
+        }
+      }
+    }
+  }
 }
+
+function selectCoordinates(length, orientation, blockvalue) {
+  console.log(this.getAttribute("disabled"));
+
+  if (shipnames.length > 0) {
+    let flag = true;
+    for (const ship of Object.values(ships)) {
+      if (blockvalue == ship.coordinates[0]) {
+        flag = false;
+        break;
+      }
+    }
+
+    if (flag) {
+      let currentblock = this;
+
+      if (orientation == "H") {
+        for (let i = 0; i < length; i = i + 1) {
+          ships[selectedship].coordinates.push(
+            currentblock.getAttribute("value")
+          );
+
+          currentblock.setAttribute("disabled", "true");
+
+          currentblock = currentblock.nextElementSibling;
+        }
+      }
+
+      shipnames.splice(shipnames.indexOf(selectedship), 1);
+      console.log(shipnames);
+      if (count > shipnames.length - 1) {
+        console.log("here");
+        count = shipnames.length - 1;
+      }
+
+      selectShip();
+    }
+  }
+}
+
+const selectShip = () => {
+  console.log(count);
+  selectedship = shipnames[count];
+  ship.innerText = selectedship;
+};
