@@ -25,8 +25,14 @@ rotateBtn.addEventListener("click", () => {
   } else {
     shiporientation = "H";
   }
+
+  //Whenever orientation is changed change the orientation of all the unselected ships
+  //Take shipnames and object.keys from ships and whichever don't match or
+  //the ship whose coordinates aren't set
+  //Right now, the orientation of only one ship is being changed
+  console.log(shiporientation);
   ships[selectedship].orientation = shiporientation;
-  console.log(ships[selectedship].orientation);
+  // console.log(ships[selectedship].orientation);
 });
 
 prevship.addEventListener("click", () => {
@@ -59,8 +65,8 @@ function highlightBlocks() {
     const length = ships[selectedship].size;
     const orientation = ships[selectedship].orientation;
     const blockvalue = this.getAttribute("value");
-    const row = blockvalue.slice(0, 1);
-
+    const row = Number(blockvalue.slice(0, 1).charCodeAt(0)) - 64;
+    console.log(row);
     let flag = true;
     const column = Number(blockvalue.slice(1, length + 1));
 
@@ -94,6 +100,33 @@ function highlightBlocks() {
         }
       } else {
         //Vertical orientation
+        if (10 - row >= length - 1) {
+          for (let i = row; i < length + row; i = i + 1) {
+            if (currentblock.classList.contains("br-grey")) {
+              console.log(currentblock);
+              flag = false;
+
+              break;
+            } else {
+              currentblock = document.querySelector(
+                `[value="${String.fromCharCode(64 + i)}${column}"]`
+              );
+            }
+          }
+          if (flag) {
+            currentblock = this;
+            currentblock.addEventListener("click", () => {
+              selectCoordinates.call(this, length, orientation, blockvalue);
+            });
+            for (let i = 0; i < length; i = i + 1) {
+              currentblock = document.querySelector(
+                `[value="${String.fromCharCode(64 + i + 1)}${column}"]`
+              );
+              currentblock.classList += " br-grey";
+              console.log(currentblock.getAttribute("value"));
+            }
+          }
+        }
       }
     }
   }
@@ -109,7 +142,6 @@ function removeHighlightedBlocks() {
         if (currentblock.classList.contains("br-grey")) {
           // console.log(currentblock);
           currentblock.classList.remove("br-grey");
-          //remove click event listener here
           currentblock = currentblock.nextElementSibling;
         }
       }
