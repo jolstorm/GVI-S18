@@ -11,7 +11,7 @@
     <div class="accordion">
       <div>
         <h1 class="acc">Section 1</h1>
-        <button>drop</button>
+        <div class="arrow"></div>
       </div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
@@ -25,7 +25,7 @@
     <div class="accordion">
       <div>
         <h1 class="acc">Section 2</h1>
-        <button>drop</button>
+        <div class="arrow"></div>
       </div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
@@ -39,7 +39,7 @@
     <div class="accordion">
       <div>
         <h1 class="acc">Section 3</h1>
-        <button>drop</button>
+        <div class="arrow"></div>
       </div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
@@ -68,27 +68,36 @@
     </div>
 
     <div class="animation-container">
-      <div class="pole"></div>
-      <div class="circle"></div>
+      <div class="circle">
+        <div class="pole"></div>
+      </div>
     </div>
     <script>
-      const buttons = document.getElementsByTagName("button");
-      for (const button of buttons) {
-        button.addEventListener("click", () => {
-          button.parentNode.parentNode.classList.toggle("expand");
-          if (button.innerText.startsWith("drop")) {
-            button.classList.toggle("opa");
-            setTimeout(() => {
-              button.innerText = "close";
-              button.classList.toggle("opa");
-            }, 500);
-          } else {
-            button.classList.toggle("opa");
-            setTimeout(() => {
-              button.innerText = "drop";
-              button.classList.toggle("opa");
-            }, 500);
-          }
+      // const buttons = document.getElementsByTagName("button");
+      // for (const button of buttons) {
+      //   button.addEventListener("click", () => {
+      //     button.parentNode.parentNode.classList.toggle("expand");
+      //     if (button.innerText.startsWith("drop")) {
+      //       button.classList.toggle("opa");
+      //       setTimeout(() => {
+      //         button.innerText = "close";
+      //         button.classList.toggle("opa");
+      //       }, 100);
+      //     } else {
+      //       button.classList.toggle("opa");
+      //       setTimeout(() => {
+      //         button.innerText = "drop";
+      //         button.classList.toggle("opa");
+      //       }, 100);
+      //     }
+      //   });
+      // }
+
+      const arrows = document.querySelectorAll(".arrow");
+      for (const arrow of arrows) {
+        arrow.addEventListener("click", () => {
+          arrow.parentNode.parentNode.classList.toggle("expand");
+          arrow.classList.toggle("rotate");
         });
       }
     </script>

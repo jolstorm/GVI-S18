@@ -9,7 +9,7 @@
   width: 600px;
   background: rgb(180, 85, 85);
   overflow: hidden;
-  transition: height 1s ease-in-out 100ms;
+  transition: height 250ms ease-in-out 100ms;
 }
 .acc {
   padding: 10px;
@@ -22,8 +22,17 @@
   border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
+.arrow {
+  height: 0;
+  width: 0;
+  border-top: 10px solid black;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  transition: transform 250ms ease-in-out;
+  margin-right: 30px;
+}
 p {
   padding: 0px 10px;
 }
@@ -32,12 +41,18 @@ button {
   width: 100px;
   background: white;
   color: black;
-  transition: color 500ms ease-in;
+  transition: color 100ms ease-in;
   cursor: pointer;
 }
 
 .opa {
   color: white;
+}
+.arrow:hover {
+  cursor: pointer;
+}
+.rotate {
+  transform: rotate(180deg);
 }
 
 .expand {
@@ -149,6 +164,7 @@ span:nth-of-type(5) {
   height: 200px;
   width: 200px;
   padding-top: 30px;
+  /* position:relative; */
 }
 
 .pole {
@@ -157,6 +173,8 @@ span:nth-of-type(5) {
   height: 0;
   width: 0;
   margin: 0 auto;
+  position: absolute;
+  top: -10px;
 }
 
 .circle {
@@ -166,14 +184,15 @@ span:nth-of-type(5) {
   width: 30px;
   background-color: black;
   margin: 0 auto;
-  transform-origin: top center;
+  /* transform-origin: top center; */
+  position: relative;
   /* animation: example 5s linear 2s infinte alternate; */
   animation-name: example;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-delay: 2s;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: forward;
 }
 
 @keyframes example {
@@ -184,6 +203,7 @@ span:nth-of-type(5) {
   25% {
     background-color: black;
     transform: rotate(90deg);
+    /* right: 20px; */
   }
   50% {
     background-color: red;
