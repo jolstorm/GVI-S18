@@ -18,7 +18,9 @@ let selectedship = shipnames[count];
 ships[selectedship].orientation = shiporientation;
 ship.innerText = selectedship;
 
-rotateBtn.addEventListener("click", () => {
+rotateBtn.addEventListener("click", rotateFunction);
+
+function rotateFunction() {
   ship.classList.toggle("rotate");
   if (shiporientation == "H") {
     shiporientation = "V";
@@ -26,21 +28,12 @@ rotateBtn.addEventListener("click", () => {
     shiporientation = "H";
   }
 
-  //Whenever orientation is changed change the orientation of all the unselected ships
-  //Take shipnames and object.keys from ships and whichever don't match or
-  //the ship whose coordinates aren't set
-  //Right now, the orientation of only one ship is being changed
   for (const details of Object.values(ships)) {
     if (details.coordinates.length == 0) {
       details.orientation = shiporientation;
-      // ships[ship.].orientation = shiporientation;
     }
   }
-
-  // ships[selectedship].orientation = shiporientation;
-  // console.log(ships[selectedship].orientation);
-});
-
+}
 prevship.addEventListener("click", () => {
   if (count > 0) {
     count--;
@@ -69,7 +62,6 @@ for (const block of gridBlocks) {
 function highlightBlocks() {
   if (shipnames.length > 0) {
     const length = ships[selectedship].size;
-    console.log(selectedship + " " + length);
     const orientation = ships[selectedship].orientation;
     const blockvalue = this.getAttribute("value");
     const row = Number(blockvalue.slice(0, 1).charCodeAt(0)) - 64;
@@ -84,7 +76,6 @@ function highlightBlocks() {
           let flag = true;
           for (let i = column; i < length + column; i = i + 1) {
             if (currentblock.classList.contains("br-grey")) {
-              // console.log(currentblock);
               flag = false;
 
               break;
@@ -92,15 +83,12 @@ function highlightBlocks() {
               currentblock = currentblock.nextElementSibling;
             }
           }
-          // console.log(`Flag=${flag}`);
           if (flag) {
             currentblock = this;
-            // console.log("Length inside highlightBlocks" + length);
             currentblock.addEventListener("click", () => {
-              selectCoordinates.call(this, orientation, blockvalue);
+              selectCoordinates.call(this, blockvalue);
             });
             for (let i = 0; i < length; i = i + 1) {
-              // console.log(currentblock.getAttribute("value"));
               currentblock.classList += " br-grey";
               currentblock = currentblock.nextElementSibling;
             }
@@ -115,7 +103,6 @@ function highlightBlocks() {
               `[value="${String.fromCharCode(64 + i)}${column}"]`
             );
             if (currentblock.classList.contains("br-grey")) {
-              // console.log(currentblock);
               flag = false;
 
               break;
@@ -125,20 +112,13 @@ function highlightBlocks() {
           if (flag) {
             currentblock = this;
             currentblock.addEventListener("click", () => {
-              selectCoordinates.call(
-                this,
-                orientation,
-                blockvalue,
-                row,
-                column
-              );
+              selectCoordinates.call(this);
             });
             for (let i = row; i < length + row; i = i + 1) {
               currentblock = document.querySelector(
                 `[value="${String.fromCharCode(64 + i)}${column}"]`
               );
               currentblock.classList += " br-grey";
-              // console.log(currentblock.getAttribute("value"));
             }
           }
         }
@@ -156,51 +136,26 @@ function removeHighlightedBlocks() {
 
     let currentblock = this;
 
-    if (!currentblock.getAttribute("disabled")) {
+    if (currentblock.getAttribute("set") != "Y") {
       if (ships[selectedship].orientation == "H") {
-        // if (10 - column >= length - 1) {
-        //   let flag = true;
-        //   for (let i = column; i < length + column; i = i + 1) {
-        //     if (currentblock.classList.contains("br-grey")) {
-        //       // console.log(currentblock);
-        //       flag = false;
-
-        //       break;
-        //     } else {
-        //       currentblock = currentblock.nextElementSibling;
-        //     }
-        //   }
-        //   if (flag) {
-        //     currentblock = this;
         for (let i = 0; i < length; i = i + 1) {
           if (currentblock.classList.contains("br-grey")) {
-            // console.log(currentblock);
             currentblock.classList.remove("br-grey");
             currentblock = currentblock.nextElementSibling;
-            // console.log(currentblock);
           }
         }
       } else {
+        console.log("here");
         //Vertical
-        // console.log(row);
         if (10 - row >= length - 1) {
           for (let i = row; i < length + row; i = i + 1) {
             currentblock = document.querySelector(
               `[value="${String.fromCharCode(64 + i)}${column}"]`
             );
-            console.log(
-              "currentblock" +
-                currentblock.getAttribute("value") +
-                "currentblock disabled:" +
-                currentblock.getAttribute("disabled") +
-                typeof currentblock.getAttribute("disabled") +
-                !currentblock.getAttribute("disabled")
-            );
             if (
-              currentblock.classList.contains("br-grey") &&
-              !currentblock.getAttribute("disabled")
+              currentblock.getAttribute("set") != "Y" &&
+              currentblock.classList.contains("br-grey")
             ) {
-              console.log("last check");
               currentblock.classList.remove("br-grey");
               // console.log("Removing:" + currentblock.getAttribute("value"));
             }
@@ -210,9 +165,13 @@ function removeHighlightedBlocks() {
     }
   }
 }
-function selectCoordinates(orientation, blockvalue, row, column) {
+function selectCoordinates() {
   const length = ships[selectedship].size;
-  console.log("Length inside sc:" + length);
+  // console.log("Length inside sc:" + length);
+  const blockvalue = this.getAttribute("value");
+  const orientation = ships[selectedship].orientation;
+  const column = Number(this.getAttribute("value").slice(1, length + 1));
+  const row = Number(this.getAttribute("value").slice(0, 1).charCodeAt(0)) - 64;
   if (shipnames.length > 0) {
     let flag = true;
     for (const ship of Object.values(ships)) {
@@ -226,22 +185,24 @@ function selectCoordinates(orientation, blockvalue, row, column) {
     if (flag) {
       let currentblock = this;
 
-      if (orientation == "H") {
+      if (orientation === "H") {
         for (let i = 0; i < length; i = i + 1) {
           ships[selectedship].coordinates.push(
             currentblock.getAttribute("value")
           );
-          console.log(
-            "pushing:" +
-              currentblock.getAttribute("value") +
-              "to" +
-              selectedship
-          );
-          currentblock.setAttribute("disabled", "true");
+          // console.log(
+          //   "pushing:" +
+          //     currentblock.getAttribute("value") +
+          //     "to" +
+          //     selectedship
+          // );
+          currentblock.setAttribute("set", "Y");
 
           currentblock = currentblock.nextElementSibling;
         }
       } else {
+        // console.log("Row:" + row);
+        // console.log("Length+row:" + (length + row));
         for (let i = row; i < length + row; i = i + 1) {
           currentblock = document.querySelector(
             `[value="${String.fromCharCode(64 + i)}${column}"]`
@@ -249,19 +210,17 @@ function selectCoordinates(orientation, blockvalue, row, column) {
           ships[selectedship].coordinates.push(
             currentblock.getAttribute("value")
           );
-          console.log(
-            "pushing:" +
-              currentblock.getAttribute("value") +
-              "to" +
-              selectedship
-          );
-          currentblock.setAttribute("disabled", "true");
+          // console.log(
+          //   "pushing:" +
+          //     currentblock.getAttribute("value") +
+          //     "to" +
+          //     selectedship
+          // );
+          currentblock.setAttribute("set", "Y");
         }
       }
 
       shipnames.splice(shipnames.indexOf(selectedship), 1);
-      console.log("Shipnames:" + shipnames);
-      console.log(shipnames.length);
       if (count > shipnames.length - 1) {
         count = shipnames.length - 1;
       }
@@ -272,17 +231,12 @@ function selectCoordinates(orientation, blockvalue, row, column) {
 }
 
 const selectShip = () => {
-  // console.log("count:" + count);
   selectedship = shipnames[count];
   if (count == -1) {
     ship.innerText = "all selected";
+    if (shiporientation == "V") ship.classList.toggle("rotate");
+    rotateBtn.removeEventListener("click", rotateFunction);
   } else {
     ship.innerText = selectedship;
   }
-  ship.innerText = count == -1 ? "all selected" : selectedship;
-  // console.log(
-  //   "Currrent ship:" +
-  //     ships[selectedship].size +
-  //     ships[selectedship].orientation
-  // );
 };
