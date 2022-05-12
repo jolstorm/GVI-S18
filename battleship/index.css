@@ -96,7 +96,7 @@ body > div {
   font-weight: bold;
   line-height: 14px;
 }
-.none {
+.d-none {
   display: none;
 }
 p {

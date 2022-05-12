@@ -23,7 +23,7 @@ let ships = {
   submarine: { size: 3, orientation: "H", coordinates: [] },
   destroyer: { size: 2, orientation: "H", coordinates: [] },
 };
-
+let hidden = false;
 let count = 0;
 let shipnames = Object.keys(ships);
 let shiporientation = "H";
@@ -73,7 +73,7 @@ for (const block of gridBlocks) {
 }
 
 function highlightBlocks() {
-  if (shipnames.length > 0) {
+  if (shipnames.length > 0 && !hidden) {
     const length = ships[selectedship].size;
     const orientation = ships[selectedship].orientation;
     const blockvalue = this.getAttribute("value");
@@ -88,7 +88,10 @@ function highlightBlocks() {
         if (10 - column >= length - 1) {
           let flag = true;
           for (let i = column; i < length + column; i = i + 1) {
-            if (currentblock.classList.contains("br-grey")) {
+            if (
+              currentblock.classList.contains("br-grey") ||
+              this.getAttribute("set") == "Y"
+            ) {
               flag = false;
 
               break;
@@ -115,7 +118,10 @@ function highlightBlocks() {
             currentblock = document.querySelector(
               `[value="${String.fromCharCode(64 + i)}${column}"]`
             );
-            if (currentblock.classList.contains("br-grey")) {
+            if (
+              currentblock.classList.contains("br-grey") ||
+              this.getAttribute("set") == "Y"
+            ) {
               flag = false;
 
               break;
@@ -216,10 +222,6 @@ function selectCoordinates() {
           currentblock = currentblock.nextElementSibling;
         }
       } else {
-        // setShip(blockvalue);
-
-        // console.log("Row:" + row);
-        // console.log("Length+row:" + (length + row));
         for (let i = row; i < length + row; i = i + 1) {
           currentblock = document.querySelector(
             `[value="${String.fromCharCode(64 + i)}${column}"]`
@@ -261,12 +263,8 @@ const selectShip = () => {
 };
 
 const setShip = (blockvalue) => {
-  console.log(blockvalue);
   const block = document.querySelector(`[value="${blockvalue}"]`);
-  console.log(block);
-  console.log(block.offsetTop);
-  console.log(block.offsetLeft);
-  console.log(block.offsetHeight);
+
   const height =
     ships[selectedship].orientation == "H"
       ? block.offsetHeight
@@ -277,8 +275,7 @@ const setShip = (blockvalue) => {
       ? ships[selectedship].size * block.offsetWidth +
         (ships[selectedship].size - 1) * 5
       : block.offsetHeight;
-  console.log(height);
-  console.log(width);
+
   let div = document.createElement("div");
   if (ships[selectedship].orientation == "H") {
     div.innerText = selectedship;
@@ -302,10 +299,10 @@ const setShip = (blockvalue) => {
     div.style.flexDirection = "row";
   }
   grid.appendChild(div);
-  console.log(Boolean(div.style.overflow));
 };
 
 const hideShips = () => {
+  hidden = hidden ? false : true;
   for (const ship of Object.values(ships)) {
     for (coordinate of ship.coordinates) {
       document
@@ -316,6 +313,7 @@ const hideShips = () => {
 };
 
 hideBtn.addEventListener("click", (e) => {
+  hideShips();
   const divs = document.querySelectorAll(".set");
   if (hideBtn.innerText.startsWith("H")) {
     hideBtn.innerText = "Show";
@@ -323,6 +321,6 @@ hideBtn.addEventListener("click", (e) => {
     hideBtn.innerText = "Hide";
   }
   for (div of divs) {
-    div.classList.toggle("none");
+    div.classList.toggle("d-none");
   }
 });
