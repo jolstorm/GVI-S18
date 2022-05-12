@@ -2,6 +2,19 @@ const ship = document.getElementById("ship");
 const prevship = document.getElementById("prev-ship");
 const nextship = document.getElementById("next-ship");
 const rotateBtn = document.getElementById("rotate-button");
+const grid = document.querySelector("#grid");
+const hideBtn = document.getElementById("hide-btn");
+
+let gridRow;
+for (let i = 65; i < 75; i = i + 1) {
+  gridRow = String.fromCharCode(i);
+  for (let j = 1; j < 11; j = j + 1) {
+    let div = document.createElement("div");
+    div.classList += "grid-block";
+    div.setAttribute("value", `${gridRow}${j}`);
+    grid.appendChild(div);
+  }
+}
 
 let ships = {
   carrier: { size: 5, orientation: "H", coordinates: [] },
@@ -186,6 +199,8 @@ function selectCoordinates() {
       let currentblock = this;
 
       if (orientation === "H") {
+        // console.log(this);
+        // setShip(blockvalue);
         for (let i = 0; i < length; i = i + 1) {
           ships[selectedship].coordinates.push(
             currentblock.getAttribute("value")
@@ -201,6 +216,8 @@ function selectCoordinates() {
           currentblock = currentblock.nextElementSibling;
         }
       } else {
+        // setShip(blockvalue);
+
         // console.log("Row:" + row);
         // console.log("Length+row:" + (length + row));
         for (let i = row; i < length + row; i = i + 1) {
@@ -219,6 +236,7 @@ function selectCoordinates() {
           currentblock.setAttribute("set", "Y");
         }
       }
+      setShip(blockvalue);
 
       shipnames.splice(shipnames.indexOf(selectedship), 1);
       if (count > shipnames.length - 1) {
@@ -236,7 +254,75 @@ const selectShip = () => {
     ship.innerText = "all selected";
     if (shiporientation == "V") ship.classList.toggle("rotate");
     rotateBtn.removeEventListener("click", rotateFunction);
+    hideShips();
   } else {
     ship.innerText = selectedship;
   }
 };
+
+const setShip = (blockvalue) => {
+  console.log(blockvalue);
+  const block = document.querySelector(`[value="${blockvalue}"]`);
+  console.log(block);
+  console.log(block.offsetTop);
+  console.log(block.offsetLeft);
+  console.log(block.offsetHeight);
+  const height =
+    ships[selectedship].orientation == "H"
+      ? block.offsetHeight
+      : ships[selectedship].size * block.offsetHeight +
+        (ships[selectedship].size - 1) * 5;
+  const width =
+    ships[selectedship].orientation == "H"
+      ? ships[selectedship].size * block.offsetWidth +
+        (ships[selectedship].size - 1) * 5
+      : block.offsetHeight;
+  console.log(height);
+  console.log(width);
+  let div = document.createElement("div");
+  if (ships[selectedship].orientation == "H") {
+    div.innerText = selectedship;
+  } else {
+    for (letter of selectedship) {
+      let p = document.createElement("p");
+
+      p.innerText = letter;
+      div.appendChild(p);
+    }
+  }
+  div.style.flexDirection =
+    ships[selectedship].orientation == "H" ? "row" : "column";
+  div.classList += " set";
+  div.style.padding.top = 5 + "px";
+  div.style.height = height + "px";
+  div.style.width = width + "px";
+  div.style.top = `${block.offsetTop}px`;
+  div.style.left = `${block.offsetLeft}px`;
+  if (selectedship == "destroyer") {
+    div.style.flexDirection = "row";
+  }
+  grid.appendChild(div);
+  console.log(Boolean(div.style.overflow));
+};
+
+const hideShips = () => {
+  for (const ship of Object.values(ships)) {
+    for (coordinate of ship.coordinates) {
+      document
+        .querySelector(`[value="${coordinate}"]`)
+        .classList.remove("br-grey");
+    }
+  }
+};
+
+hideBtn.addEventListener("click", (e) => {
+  const divs = document.querySelectorAll(".set");
+  if (hideBtn.innerText.startsWith("H")) {
+    hideBtn.innerText = "Show";
+  } else {
+    hideBtn.innerText = "Hide";
+  }
+  for (div of divs) {
+    div.classList.toggle("none");
+  }
+});
