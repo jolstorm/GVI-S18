@@ -4,6 +4,8 @@ const nextship = document.getElementById("next-ship");
 const rotateBtn = document.getElementById("rotate-button");
 const grid = document.querySelector("#grid");
 const hideBtn = document.getElementById("hide-btn");
+const startBtn = document.getElementById("start-btn");
+const explosionSound = document.getElementById("explosion-sound");
 
 let gridRow;
 for (let i = 65; i < 75; i = i + 1) {
@@ -15,6 +17,7 @@ for (let i = 65; i < 75; i = i + 1) {
     grid.appendChild(div);
   }
 }
+const gridBlocks = document.querySelectorAll(".grid-block");
 
 let ships = {
   carrier: { size: 5, orientation: "H", coordinates: [] },
@@ -60,9 +63,6 @@ nextship.addEventListener("click", () => {
     selectShip();
   }
 });
-
-const gridBlocks = document.querySelectorAll(".grid-block");
-
 for (const block of gridBlocks) {
   block.addEventListener("mouseover", () => {
     highlightBlocks.call(block);
@@ -102,7 +102,7 @@ function highlightBlocks() {
           if (flag) {
             currentblock = this;
             currentblock.addEventListener("click", () => {
-              selectCoordinates.call(this, blockvalue);
+              selectCoordinates.call(this);
             });
             for (let i = 0; i < length; i = i + 1) {
               currentblock.classList += " br-grey";
@@ -164,7 +164,6 @@ function removeHighlightedBlocks() {
           }
         }
       } else {
-        console.log("here");
         //Vertical
         if (10 - row >= length - 1) {
           for (let i = row; i < length + row; i = i + 1) {
@@ -186,9 +185,8 @@ function removeHighlightedBlocks() {
 }
 function selectCoordinates() {
   const length = ships[selectedship].size;
-  // console.log("Length inside sc:" + length);
-  const blockvalue = this.getAttribute("value");
   const orientation = ships[selectedship].orientation;
+  const blockvalue = this.getAttribute("value");
   const column = Number(this.getAttribute("value").slice(1, length + 1));
   const row = Number(this.getAttribute("value").slice(0, 1).charCodeAt(0)) - 64;
   if (shipnames.length > 0) {
@@ -205,8 +203,6 @@ function selectCoordinates() {
       let currentblock = this;
 
       if (orientation === "H") {
-        // console.log(this);
-        // setShip(blockvalue);
         for (let i = 0; i < length; i = i + 1) {
           ships[selectedship].coordinates.push(
             currentblock.getAttribute("value")
@@ -253,10 +249,11 @@ function selectCoordinates() {
 const selectShip = () => {
   selectedship = shipnames[count];
   if (count == -1) {
+    startBtn.removeAttribute("disabled");
     ship.innerText = "all selected";
     if (shiporientation == "V") ship.classList.toggle("rotate");
     rotateBtn.removeEventListener("click", rotateFunction);
-    hideShips();
+    // hideShips();
   } else {
     ship.innerText = selectedship;
   }
@@ -302,8 +299,21 @@ const setShip = (blockvalue) => {
 };
 
 const hideShips = () => {
+  if (shipnames.length < 5) {
+    const divs = document.querySelectorAll(".set");
+    if (hideBtn.innerText.startsWith("H")) {
+      hideBtn.innerText = "Show";
+    } else {
+      hideBtn.innerText = "Hide";
+    }
+    for (div of divs) {
+      //Hiding divs
+      div.classList.toggle("d-none");
+    }
+  }
   hidden = hidden ? false : true;
   for (const ship of Object.values(ships)) {
+    //Removing black backgroung from gridblock
     for (coordinate of ship.coordinates) {
       document
         .querySelector(`[value="${coordinate}"]`)
@@ -312,15 +322,47 @@ const hideShips = () => {
   }
 };
 
-hideBtn.addEventListener("click", (e) => {
+hideBtn.addEventListener("click", () => {
   hideShips();
-  const divs = document.querySelectorAll(".set");
-  if (hideBtn.innerText.startsWith("H")) {
-    hideBtn.innerText = "Show";
-  } else {
-    hideBtn.innerText = "Hide";
-  }
-  for (div of divs) {
-    div.classList.toggle("d-none");
-  }
 });
+
+startBtn.addEventListener("click", (e) => {
+  hideBtn.setAttribute("disabled", "");
+  startGame();
+});
+
+function startGame() {
+  hideShips();
+  for (block of gridBlocks) {
+    // console.log(block.getAttribute("set"));
+    block.addEventListener("click", hitormiss);
+  }
+}
+
+let hit = 0;
+let timerId = true;
+function hitormiss() {
+  if (timerId) {
+    timerId = false;
+    if (
+      this.getAttribute("set") == "Y" &&
+      !this.classList.contains("exploded") &&
+      !this.classList.contains("miss")
+    ) {
+      explosionSound.pause();
+      ++hit;
+      this.classList += " explode";
+      explosionSound.play();
+    } else {
+      this.classList += " miss";
+    }
+    console.log(hit);
+    if (hit == 17) {
+      alert("Finished");
+    }
+    setTimeout(() => {
+      //Event Throttling
+      timerId = true;
+    }, 4000);
+  }
+}

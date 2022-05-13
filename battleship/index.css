@@ -52,14 +52,25 @@ body > div {
   height: 50px;
   width: 150px;
 }
-
+.buttons {
+  margin: 0 auto;
+  width: 600px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 30px;
+}
 #hide-btn {
-  margin: 50px auto;
-  display: block;
+  width: 50px;
+  /* margin: 50px auto; */
+  /* display: inline-block; */
+}
+#start-btn {
 }
 #grid {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
+  grid-template-rows: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   column-gap: 5px;
   row-gap: 5px;
   background: darkblue;
@@ -69,16 +80,20 @@ body > div {
 }
 
 .grid-block {
-  height: 40px;
-  width: 40px;
+  /* height: 40px;
+  width: 40px; */
   background: lightskyblue;
   border-radius: 3px;
+
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  /* opacity: 0.8; */
   /* border:1px solid black */
 }
 
 .br-grey {
   /* border: 2px solid grey; */
   background: black;
+  opacity: 1;
 }
 .set {
   display: flex;
@@ -101,4 +116,11 @@ body > div {
 }
 p {
   width: 20px;
+}
+.explode {
+  background: orange;
+}
+.miss {
+  background: lightgrey;
+  opacity: 0.5;
 }

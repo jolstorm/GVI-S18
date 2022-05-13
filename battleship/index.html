@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
+    <audio
+      id="explosion-sound"
+      src="./mixkit-sea-mine-explosion-1184.wav"
+      type="audio/nav"
+    >
+      <source src="./mixkit-sea-mine-explosion-1184.wav" type="audio/wav" />
+    </audio>
     <div id="ship-selector">
       <img src="./chevron-left.svg" alt="left arrow" id="prev-ship" />
       <div id="ship"></div>
       <img src="./chevron-right.svg" alt="right arrow" id="next-ship" />
       <button id="rotate-button">Rotate</button>
     </div>
-    <button id="hide-btn">Hide</button>
+    <div class="buttons">
+      <button id="hide-btn">Hide</button>
+      <button id="start-btn" disabled>Start Game</button>
+    </div>
     <div id="grid"></div>
     <script src="./script.js"></script>
   </body>
