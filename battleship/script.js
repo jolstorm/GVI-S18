@@ -184,12 +184,13 @@ function removeHighlightedBlocks() {
   }
 }
 function selectCoordinates() {
-  const length = ships[selectedship].size;
-  const orientation = ships[selectedship].orientation;
-  const blockvalue = this.getAttribute("value");
-  const column = Number(this.getAttribute("value").slice(1, length + 1));
-  const row = Number(this.getAttribute("value").slice(0, 1).charCodeAt(0)) - 64;
   if (shipnames.length > 0) {
+    const length = ships[selectedship].size;
+    const orientation = ships[selectedship].orientation;
+    const blockvalue = this.getAttribute("value");
+    const column = Number(this.getAttribute("value").slice(1, length + 1));
+    const row =
+      Number(this.getAttribute("value").slice(0, 1).charCodeAt(0)) - 64;
     let flag = true;
     for (const ship of Object.values(ships)) {
       for (coordinate of ship.coordinates) {
@@ -297,21 +298,25 @@ const setShip = (blockvalue) => {
   }
   grid.appendChild(div);
 };
+hideBtn.addEventListener("click", () => {
+  hideShips();
+});
 
 const hideShips = () => {
+  // if (startBtn.getAttribute("disabled") != "true") {
   if (shipnames.length < 5) {
     const divs = document.querySelectorAll(".set");
+    for (div of divs) {
+      //Hiding divs
+      div.classList.toggle("d-none");
+    }
     if (hideBtn.innerText.startsWith("H")) {
       hideBtn.innerText = "Show";
     } else {
       hideBtn.innerText = "Hide";
     }
-    for (div of divs) {
-      //Hiding divs
-      div.classList.toggle("d-none");
-    }
   }
-  hidden = hidden ? false : true;
+  // hidden = hidden ? false : true;
   for (const ship of Object.values(ships)) {
     //Removing black backgroung from gridblock
     for (coordinate of ship.coordinates) {
@@ -320,21 +325,18 @@ const hideShips = () => {
         .classList.remove("br-grey");
     }
   }
+  // }
 };
 
-hideBtn.addEventListener("click", () => {
-  hideShips();
-});
-
 startBtn.addEventListener("click", (e) => {
-  hideBtn.setAttribute("disabled", "");
+  hideBtn.setAttribute("disabled", "true");
+  startBtn.setAttribute("disabled", "true");
   startGame();
 });
 
 function startGame() {
   hideShips();
   for (block of gridBlocks) {
-    // console.log(block.getAttribute("set"));
     block.addEventListener("click", hitormiss);
   }
 }
@@ -349,20 +351,30 @@ function hitormiss() {
       !this.classList.contains("exploded") &&
       !this.classList.contains("miss")
     ) {
-      explosionSound.pause();
-      ++hit;
-      this.classList += " explode";
       explosionSound.play();
+      setTimeout(() => {
+        this.classList += " explode";
+      }, 300);
+      ++hit;
     } else {
       this.classList += " miss";
     }
     console.log(hit);
     if (hit == 17) {
-      alert("Finished");
+      console.log("Finished");
+      stopGame();
     }
     setTimeout(() => {
       //Event Throttling
+      explosionSound.pause();
+      explosionSound.currentTime = 0;
       timerId = true;
-    }, 4000);
+    }, 1500);
+  }
+}
+
+function stopGame() {
+  for (block of gridBlocks) {
+    block.removeEventListener("click", hitormiss);
   }
 }

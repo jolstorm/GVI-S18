@@ -62,11 +62,8 @@ body > div {
 }
 #hide-btn {
   width: 50px;
-  /* margin: 50px auto; */
-  /* display: inline-block; */
 }
-#start-btn {
-}
+
 #grid {
   display: grid;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
