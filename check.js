@@ -26,5 +26,5 @@ function a(x) {
     return x + y;
   };
 }
-
+console.log("yolo");
 console.log(a(5)(10));
