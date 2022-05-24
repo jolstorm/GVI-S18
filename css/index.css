@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General and utility classes */
+
+.container {
+  width: 81.2%;
+  margin: 0 auto;
+}
+
+.os {
+  font-family: "Open Sans", sans-serif;
+}
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+nav {
+  width: 57%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  /* font-weight: ; */
+  font-size: 14px;
+  color: #183b56;
+}
+
+#get-it-now-button {
+  width: 22%;
+  text-align: center;
+  padding: 8px;
+  border: 2px solid #1565d8;
+  border-radius: 5px;
+  color: #1565d8;
+}

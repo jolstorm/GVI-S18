@@ -1,0 +1,23 @@
+@media (max-width: 890px) {
+  nav {
+    width: 65%;
+  }
+  #get-it-now-button {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 732px) {
+  nav {
+    width: 70%;
+  }
+  #get-it-now-button {
+    padding: 2px;
+  }
+}
+
+@media (max-width: 500px) {
+  nav {
+    display: none;
+  }
+}
