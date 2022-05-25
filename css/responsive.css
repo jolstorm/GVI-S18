@@ -2,21 +2,16 @@
   nav {
     width: 65%;
   }
-  #get-it-now-button {
-    padding: 6px;
-  }
 }
 
-@media (max-width: 732px) {
+@media (max-width: 755px) {
   nav {
-    width: 70%;
-  }
-  #get-it-now-button {
-    padding: 2px;
+    width: 73%;
+    /* font-size: 12px; */
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 672px) {
   nav {
     display: none;
   }
