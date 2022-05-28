@@ -1,18 +1,156 @@
+@media (max-width: 1050px) {
+  #prod-rec .products {
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1035px) {
+  #more-categories .container {
+    justify-content: center;
+  }
+}
+@media (max-width: 1035px) {
+  #most-sold .container {
+    justify-content: space-around;
+  }
+  #most-sold .item {
+    margin-right: 10px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 990px) {
+  #prod-rec {
+    padding: 40px 0;
+  }
+  #prod-rec .products {
+    margin-top: 20px;
+  }
+  #hot-item {
+    margin-bottom: 280px;
+  }
+  #more-categories {
+    padding-bottom: 20px;
+  }
+
+  #blog-card-container {
+    justify-content: space-around;
+  }
+  .blog-card {
+    margin-right: 15px;
+    margin-bottom: 30px;
+  }
+  .blog-heading {
+    width: 60%;
+  }
+  .blog-heading + p {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 930px) {
+  #download .container {
+    height: 270;
+  }
+  #download .info {
+    font-size: 30px;
+  }
+}
+@media (max-width: 910px) {
+  #more-categories .container {
+    justify-content: center;
+  }
+  #blog .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  #most-sold .container {
+    padding-bottom: 10px;
+  }
+
+  .links {
+    margin-left: 30px;
+  }
+  #download .info {
+    width: 51.5%;
+  }
+}
+
+@media (max-width: 426px) {
+  #prod-rec h1 {
+    line-height: 30px;
+  }
+  #prod-rec h1 + p {
+    width: 80%;
+    line-height: 20px;
+  }
+  #more-categories .container {
+    justify-content: space-around;
+  }
+  #more-categories .category {
+    margin-bottom: 20px;
+  }
+
+  .blog-heading {
+    width: 100%;
+  }
+}
 @media (max-width: 890px) {
   nav {
     width: 65%;
   }
 }
 
+@media (max-width: 786px) {
+  #download .container {
+    height: 250px;
+  }
+  #download .img-container {
+    width: 250px;
+  }
+  #download .info {
+    width: 51.5%;
+    font-size: 25px;
+  }
+  #download a img {
+    width: 115px;
+  }
+}
 @media (max-width: 755px) {
+  #prod-rec .product {
+    margin-bottom: 15px;
+  }
   nav {
     width: 73%;
     /* font-size: 12px; */
   }
 }
 
-@media (max-width: 672px) {
+@media (max-width: 674px) {
   nav {
     display: none;
+  }
+  #download .container {
+    height: 200px;
+  }
+  #download .img-container {
+    width: 200px;
+  }
+  #download .info {
+    width: 52%;
+    font-size: 22px;
+  }
+  #download a img {
+    width: 115px;
+  }
+}
+
+@media (max-width: 473px) {
+  #download .info {
+    width: 60%;
+    font-size: 4vw;
+  }
+  #download a img {
+    width: 18vw;
+    margin-top: 5px;
   }
 }
