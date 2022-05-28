@@ -411,6 +411,7 @@ nav a {
 }
 .price span:first-child {
   font-weight: 600;
+  color: #183b56;
 }
 .price span + span {
   text-decoration: line-through;
@@ -940,14 +941,14 @@ nav a {
 
 #download a {
   text-decoration: none;
-  margin-right: 0.3em;
+  margin-right: 0.4em;
   width: max-content;
   display: inline-block;
   margin-top: 1em;
 }
 
 #download a img {
-  width: 130px;
+  width: 150px;
 }
 
 /* Other links  */
@@ -955,18 +956,15 @@ nav a {
 #other-links {
   padding-top: 100px;
   padding-right: 100px;
+  /* background-color: #5a7184; */
 }
 
 #other-links .container {
   display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
 }
 
 #social-media-link-cont {
-  width: 250px;
-
-  border: 1px solid black;
+  width: 30%;
 }
 
 #social-media-link-cont div {
@@ -1001,15 +999,18 @@ nav a {
   background: #183b56;
   color: #e3e7ed;
 }
+.links-cont {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
 .links {
   list-style-type: none;
-  margin-right: 20px;
   /* width: 0px; */
-  border: 1px solid black;
+  width: 20%;
 }
 .links li {
   margin-bottom: 25px;
-  /* width: 200px; */
 }
 
 .links li:first-child {
@@ -1023,7 +1024,6 @@ nav a {
 .links a {
   text-decoration: none;
   color: #183b56;
-  /* letter-spacing: 0.5?px; */
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   font-weight: normal;
@@ -1046,19 +1046,19 @@ footer .container {
 }
 
 .heart {
-  height: 40px;
-  width: 40px;
-  font-size: 24px;
+  height: 56px;
+  width: 56px;
+  font-size: 36px;
   color: white;
   background: #1565d8;
   border-radius: 50%;
-  padding: 8px;
+  padding: 10px;
   margin-bottom: 10px;
 }
 
 footer p {
   margin-bottom: 50px;
-  font-size: 14px;
+  font-size: 16px;
   color: #5a7184;
   font-weight: 600;
 }
