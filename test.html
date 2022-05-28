@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      #download {
+        background: orange;
+        width: 100%;
+      }
+      #download .container {
+        width: 81.2%;
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        height: 300px;
+        justify-content: space-between;
+      }
+
+      #download .img-container {
+        width: 300px;
+        position: relative;
+        /* margin-right:50px; */
+      }
+
+      #download .img-container img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      #download .info {
+        width: 47%;
+        font-size: 32px;
+        line-height: 1.2em;
+        color: white;
+        padding-top: 3.4em;
+        font-weight: bold;
+        /* border:1px solid black; */
+      }
+
+      #download a {
+        text-decoration: none;
+        margin-right: 0.3em;
+        width: max-content;
+        display: inline-block;
+        margin-top: 1em;
+      }
+
+      #download a img {
+        width: 130px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="download">
+      <div class="container">
+        <div class="img-container">
+          <img src="./images/download/Iphones.png" alt="SmartPhones" />
+        </div>
+        <div class="info">
+          <p class="hk">
+            Download Ehya now <br />
+            and Get Promo Everyday
+          </p>
+
+          <a href="">
+            <img src="./images/download/appstore.svg" alt="App Store Link" />
+          </a>
+          <a href="">
+            <img src="./images/download/playstore.svg" alt="Play Store Link" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

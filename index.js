@@ -4,6 +4,7 @@ let interval = 3;
 const products = document.querySelectorAll("#hero .products-cont .product");
 products[current].lastElementChild.classList += " selected";
 const heroImgs = document.getElementsByClassName("hero-images");
+const bookmarks = document.querySelectorAll(".bookmark");
 
 let change = setInterval(check, interval * 1000);
 
@@ -46,4 +47,10 @@ for (const a of nav) {
       a.classList.remove("hov");
     });
   }
+}
+
+for (const bookmark of bookmarks) {
+  bookmark.addEventListener("click", () => {
+    bookmark.classList.toggle("bookmarked");
+  });
 }
