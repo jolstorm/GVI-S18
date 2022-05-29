@@ -958,7 +958,7 @@ nav a {
 
 #other-links {
   padding-top: 100px;
-  padding-right: 100px;
+  /* padding-right: 100px; */
   /* background-color: #5a7184; */
 }
 
@@ -972,7 +972,7 @@ nav a {
 
 #social-media-link-cont div {
   position: relative;
-  right: 5px;
+  right: 1px;
 }
 
 #social-media-link-cont p {
@@ -981,6 +981,7 @@ nav a {
   line-height: 36px;
   font-size: 16px;
   font-weight: 400;
+  width:80%;
 }
 
 #social-media-links {
@@ -1005,12 +1006,14 @@ nav a {
 .links-cont {
   width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  flex-wrap:wrap;
 }
 .links {
   list-style-type: none;
   /* width: 0px; */
   width: 20%;
+  margin-right:20px;
 }
 .links li {
   margin-bottom: 25px;
@@ -1064,4 +1067,5 @@ footer p {
   font-size: 16px;
   color: #5a7184;
   font-weight: 600;
+  text-align: center;
 }
