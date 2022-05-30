@@ -39,9 +39,33 @@
   #blog-card-container {
     justify-content: space-around;
   }
+  #blackwatch {
+    width: 90%;
+    left: 20px;
+  }
 }
 
 @media (max-width: 1020px) {
+  #hero .text-content {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .text-content h1 {
+    width: 90%;
+    font-size: 56px;
+  }
+  .features {
+    width: 66% !important;
+  }
+  #email-input-cont {
+    width: 85%;
+  }
+  #hero .img-container {
+    width: 60%;
+
+    margin: 0 auto;
+  }
+
   #download .img-container {
     width: 45%;
   }
@@ -80,14 +104,27 @@
   #hamburger:hover {
     cursor: pointer;
   }
+  #hero {
+    padding-top: 50px;
+  }
+  .features {
+    width: 70% !important;
+  }
+  #email-input-cont {
+    width: 100%;
+  }
 }
 @media (max-width: 866px) {
+  .features {
+    width: 75% !important;
+  }
   #more-categories .container {
     justify-content: space-between;
   }
   #most-sold .item {
     margin-right: 25px;
   }
+
   .blog-card {
     margin-right: 25px;
   }
@@ -119,13 +156,25 @@
 }
 
 @media (max-width: 767px) {
+  .features {
+    width: 85% !important;
+  }
+  .blog-heading {
+    width: 100%;
+  }
+
+  .blog-card {
+    margin-right: 0;
+  }
   #download .img-container {
     display: none;
   }
   #download .container {
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
   }
+
   #download .info {
     width: 90%;
     font-size: 36px;
@@ -133,7 +182,39 @@
   }
 }
 
+@media (max-width: 654px) {
+  .text-content h1 {
+    width: 100% !important;
+    font-size: 48px !important;
+    margin: 30px 0 !important;
+  }
+  #hero .img-container {
+    width: 65%;
+  }
+  .features {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .features li {
+    margin: 5px 0 !important;
+  }
+  .features li:nth-of-type(even) {
+    margin-left: 0px;
+  }
+}
+
 @media (max-width: 584px) {
+  #hero .text-content button {
+    width: 35%;
+  }
+  #hero .img-container {
+    width: 75%;
+    border: 1px solid black;
+  }
+  #blackwatch {
+    width: 95%;
+    left: 5px;
+  }
   #more-categories .container {
     justify-content: space-around;
   }
@@ -156,6 +237,21 @@
 }
 
 @media (max-width: 440px) {
+  #hero .text-content button {
+    padding: 2px;
+    font-size: 14px;
+  }
+  #hot-item .heading {
+    flex-direction: column;
+    justify-content: center;
+    /* margin-bottom: 25px; */
+  }
+  #hot-item .heading h2 {
+    margin-bottom: 8px;
+  }
+  #hot-item .heading button {
+    width: 200px;
+  }
   #download .container {
     height: 250px;
   }
@@ -167,6 +263,9 @@
   #download a img {
     width: 130px;
   }
+  .container {
+    width: 85%;
+  }
 }
 @media (max-width: 398px) {
   #download .info {
@@ -174,7 +273,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 100%;
   }
 
