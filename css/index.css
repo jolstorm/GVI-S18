@@ -365,10 +365,11 @@ nav a {
   left: 40px;
 }
 #blackwatch {
-  left: 40px;
+  left: 3%;
   z-index: 2;
-  height: 100%;
-  width: 80%;
+  height: 102%;
+  width: 102%;
+  object-fit: contain;
 }
 
 #dotted-pattern {
@@ -402,28 +403,42 @@ nav a {
   display: none;
   position: relative;
   background: white;
-  width: 60%;
+  width: 65%;
   margin: 0 auto;
   height: 100px;
-  padding: 12px;
+  padding: 15px;
   font-size: 16px;
-  background: white;
-  border-radius: 12px;
+  color: #183b56;
+  border-radius: 8px;
   margin-top: 20px;
   text-align: center;
+  /* flex-direction: row; */
+}
+
+.single-product-card img {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
 }
 
 .single-product-card .product-details {
   position: absolute;
   opacity: 0;
+  margin-left: 0 !important;
+  /* width: 80px; */
+  display: flex;
 }
-
+.single-product-card .product-details div{
+  margin-left:10px;
+}
 .single-product-card .product-details p {
   height: max-content;
+  /* margin-left: 20px; */
 }
 
 .single-product-card .product-details strong {
-  margin: 0;
+  margin-left: 20px;
+  /* display: none; */
 }
 .product {
   width: 31.5%;
