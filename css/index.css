@@ -121,6 +121,7 @@ nav a {
   transform: translateX(40vw);
   transition: transform 1s ease;
   display: none;
+  border-bottom-left-radius: 30px;
 }
 
 .show {
@@ -201,11 +202,13 @@ nav a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 #hero .text-content {
   width: 490px;
+  height: 421px;
   position: relative;
+  /* border: 1px solid black; */
 }
 
 .content {
@@ -236,6 +239,10 @@ nav a {
 
 .content:first-of-type h1 {
   margin: 20px 0 24px 0;
+}
+
+.content:nth-of-type(3) h1 {
+  margin: 20px 0 12px 0;
 }
 
 .text-content h1 {
@@ -276,8 +283,8 @@ nav a {
 
 #email-input-cont {
   width: 100%;
-  position: relative;
-  margin-top: 355px;
+  position: absolute;
+  bottom: 0;
 }
 #email-input {
   width: 100%;
@@ -323,6 +330,7 @@ nav a {
   height: 50%;
   height: 415px;
   position: relative;
+
   /* border: 1px solid black; */
 }
 
@@ -390,6 +398,33 @@ nav a {
   justify-content: space-between;
 }
 
+.single-product-card {
+  display: none;
+  position: relative;
+  background: white;
+  width: 60%;
+  margin: 0 auto;
+  height: 100px;
+  padding: 12px;
+  font-size: 16px;
+  background: white;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.single-product-card .product-details {
+  position: absolute;
+  opacity: 0;
+}
+
+.single-product-card .product-details p {
+  height: max-content;
+}
+
+.single-product-card .product-details strong {
+  margin: 0;
+}
 .product {
   width: 31.5%;
   display: flex;
@@ -399,6 +434,7 @@ nav a {
 .product-card {
   color: #183b56;
   display: flex;
+  /* flex-wrap: wrap; */
   padding: 19px;
   font-size: 16px;
   background: white;

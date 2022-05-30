@@ -10,7 +10,7 @@ const content = document.querySelectorAll(".content");
 content[1].style.opacity = "1";
 console.log(window.innerWidth);
 let change = setInterval(check, interval * 1000);
-
+const spcd = document.querySelectorAll(".single-product-card .product-details");
 function check() {
   products[current ? current - 1 : 2].lastElementChild.classList.remove(
     "selected"
@@ -20,6 +20,8 @@ function check() {
   heroImgs[current].style.opacity = "1";
   content[current ? current - 1 : 2].style.opacity = "0";
   content[current].style.opacity = "1";
+  spcd[current ? current - 1 : 2].style.opacity = "0";
+  spcd[current].style.opacity = "1";
   prev = current;
   current++;
   if (current == heroImgs.length) {
@@ -37,6 +39,8 @@ products.forEach((product, index) => {
     content[prev].style.opacity = "0";
     heroImgs[index].style.opacity = "1";
     content[index].style.opacity = "1";
+    spcd[prev].style.opacity = "0";
+    spcd[index].style.opacity = "1";
 
     current = index;
     prev = index;
