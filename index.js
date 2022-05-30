@@ -5,7 +5,7 @@ const products = document.querySelectorAll("#hero .products-cont .product");
 products[current].lastElementChild.classList += " selected";
 const heroImgs = document.getElementsByClassName("hero-images");
 const bookmarks = document.querySelectorAll(".bookmark");
-
+console.log(window.innerWidth);
 let change = setInterval(check, interval * 1000);
 
 function check() {

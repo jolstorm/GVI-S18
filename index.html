@@ -12,6 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
     <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
@@ -31,6 +35,7 @@
           <a href="#" class="os">Docs </a>
           <a href="#" class="os">Help </a>
           <a href="#" id="get-it-now-button" class="os">Get it now</a>
+          <i class="fa-solid fa-bars" id="hamburger"></i>
         </nav>
       </div>
     </header>
@@ -287,9 +292,17 @@
           </h2>
           <button class="os">See All Products</button>
         </div>
-        <button id="next"><i class="fa-solid fa-angle-right"></i></button>
-        <div id="prod-cont">
-          <div class="prod">
+        <div id="next"></div>
+        <div id="prev"></div>
+        <div class="owl-theme">
+          <div class="owl-controls">
+            <div id="customNav" class="owl-nav"></div>
+          </div>
+        </div>
+
+        <div id="prod-cont" class="owl-carousel owl-theme">
+          <div class="item prod">
+            <!-- <div class=""> -->
             <img
               src="./images/most_sold_items/AsusZenbookPro13.png"
               alt="Asus Zenbook Pro13"
@@ -297,33 +310,41 @@
             <p class="title hk">Asus Zenbook Pro 13”</p>
             <p class="specs os">The specification here</p>
             <p class="price os">1,500.00$</p>
+            <!-- </div> -->
           </div>
-          <div class="prod">
-            <img
-              src="./images/product_recommendation/ModenaJuiceAndVegeBlenderSilver.png"
-              alt="Asus Zenbook Pro13"
-            />
-            <p class="title hk">Modena Juice Blender</p>
-            <p class="specs os">The specification here</p>
-            <p class="price os">$1,500.00</p>
+          <div class="item">
+            <div class="prod">
+              <img
+                src="./images/product_recommendation/ModenaJuiceAndVegeBlenderSilver.png"
+                alt="Asus Zenbook Pro13"
+              />
+              <p class="title hk">Modena Juice Blender</p>
+              <p class="specs os">The specification here</p>
+              <p class="price os">$1,500.00</p>
+            </div>
           </div>
-          <div class="prod">
-            <img
-              src="./images/product_recommendation/Camera.png"
-              alt="Asus Zenbook Pro13"
-            />
-            <p class="title hk">Leica M3 1972</p>
-            <p class="specs os">The specification here</p>
-            <p class="price os">$1,500.00</p>
+
+          <div class="item">
+            <div class="prod">
+              <img
+                src="./images/product_recommendation/Camera.png"
+                alt="Asus Zenbook Pro13"
+              />
+              <p class="title hk">Leica M3 1972</p>
+              <p class="specs os">The specification here</p>
+              <p class="price os">$1,500.00</p>
+            </div>
           </div>
-          <div class="prod">
-            <img
-              src="./images/product_recommendation/Bitmap.png"
-              alt="Asus Zenbook Pro13"
-            />
-            <p class="title hk">iPad Pro 2018</p>
-            <p class="specs os">The specification here</p>
-            <p class="price os">$1,500.00</p>
+          <div class="item">
+            <div class="prod">
+              <img
+                src="./images/product_recommendation/Bitmap.png"
+                alt="Asus Zenbook Pro13"
+              />
+              <p class="title hk">iPad Pro 2018</p>
+              <p class="specs os">The specification here</p>
+              <p class="price os">$1,500.00</p>
+            </div>
           </div>
         </div>
       </div>
@@ -441,7 +462,7 @@
       <div class="container">
         <!-- Item1 -->
 
-        <div class="item">
+        <div class="item-ms">
           <h2 class="item-category hk">Most Sold Laptop</h2>
           <div class="item-card">
             <img
@@ -508,7 +529,7 @@
 
         <!-- Item2 -->
 
-        <div class="item">
+        <div class="item-ms">
           <h2 class="item-category hk">Most Sold Camera</h2>
           <div class="item-card">
             <img
@@ -574,7 +595,7 @@
 
         <!-- Item3 -->
 
-        <div class="item">
+        <div class="item-ms">
           <h2 class="item-category hk">Most Sold Headphone</h2>
           <div class="item-card">
             <img
@@ -781,5 +802,36 @@
       </div>
     </footer>
     <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      $(".owl-carousel").owlCarousel({
+        loop: false,
+        margin: 0,
+        responsiveClass: true,
+        nav: true,
+        navContainer: "#customNav",
+        navText: [
+          `<i class="fa-solid fa-angle-left"></i>`,
+          `<i class="fa-solid fa-angle-right"></i>`,
+        ],
+        dots: false,
+        responsive: {
+          0: {
+            items: 1,
+          },
+
+          440: {
+            items: 2,
+          },
+          600: {
+            items: 3,
+          },
+          1000: {
+            items: 4,
+          },
+        },
+      });
+    </script>
   </body>
 </html>
