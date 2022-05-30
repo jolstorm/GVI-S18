@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="./css/responsive.css" />
   </head>
   <body>
+    <div class="shade"></div>
+
     <header>
       <div class="container">
         <img src="./images/header/Logo.svg" alt="ehya Logo" />
@@ -37,6 +39,17 @@
           <a href="#" id="get-it-now-button" class="os">Get it now</a>
           <i class="fa-solid fa-bars" id="hamburger"></i>
         </nav>
+        <div class="ddmenu-wrapper">
+          <div class="dropdown-menu">
+            <div id="close"><i class="fa-solid fa-xmark"></i></div>
+            <div class="dropdown-option os">Home</div>
+            <div class="dropdown-option os">Landing</div>
+            <div class="dropdown-option os">Pages</div>
+            <div class="dropdown-option os">Docs</div>
+            <div class="dropdown-option os">Help</div>
+            <div class="dropdown-option os">Get it now</div>
+          </div>
+        </div>
       </div>
     </header>
     <section id="hero">
@@ -140,6 +153,38 @@
               </div>
             </div>
             <div class="line"></div>
+          </div>
+        </div>
+        <div id="carousel-cont" class="owl-theme owl-carousel">
+          <div class="item">
+            <div class="owl-card">
+              <img src="./images/hero/BeatsbyDre.png" alt="Beats By Dre" />
+
+              <p class="desc os">
+                Beats by Dre C 3450. Active Noise Cancelling
+              </p>
+              <strong class="hk">$1,750.00</strong>
+            </div>
+          </div>
+          <div class="item">
+            <div class="owl-card">
+              <img src="./images/hero/BlackWatch.png" alt="Samsung Watch" />
+
+              <p class="desc os">
+                Samsung Galaxy Watch 3. Black Metalic Newest
+              </p>
+              <strong class="hk">$1,750.00</strong>
+            </div>
+          </div>
+          <div class="item">
+            <div class="owl-card">
+              <img src="./images/hero/AppleWatch.png" alt="Apple Watch" />
+
+              <p class="desc os">
+                Apple Watch 4 2020. Silver - Special Edition
+              </p>
+              <strong class="hk">$1,750.00</strong>
+            </div>
           </div>
         </div>
       </div>
@@ -300,7 +345,7 @@
           </div>
         </div>
 
-        <div id="prod-cont" class="owl-carousel owl-theme">
+        <div id="prod-cont" class="owl-carousel owl-theme owl-two">
           <div class="item prod">
             <!-- <div class=""> -->
             <img
@@ -805,34 +850,65 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
-      $(".owl-carousel").owlCarousel({
-        loop: false,
-        margin: 0,
-        responsiveClass: true,
-        mouseDrag: true,
-        touchDrag: true,
-        nav: true,
-        navContainer: "#customNav",
-        navText: [
-          `<i class="fa-solid fa-angle-left"></i>`,
-          `<i class="fa-solid fa-angle-right"></i>`,
-        ],
-        dots: false,
-        responsive: {
-          0: {
-            items: 1,
-          },
+      $(document).ready(function () {
+        console.log("ready!");
 
-          440: {
-            items: 2,
+        $("#prod-cont").owlCarousel({
+          loop: false,
+          margin: 0,
+          responsiveClass: true,
+          mouseDrag: true,
+          touchDrag: true,
+          nav: true,
+          navContainer: "#customNav",
+          navText: [
+            `<i class="fa-solid fa-angle-left"></i>`,
+            `<i class="fa-solid fa-angle-right"></i>`,
+          ],
+          dots: false,
+          responsive: {
+            0: {
+              items: 1,
+            },
+
+            440: {
+              items: 2,
+            },
+            600: {
+              items: 3,
+            },
+            1000: {
+              items: 4,
+            },
           },
-          600: {
-            items: 3,
+        });
+        $("#carousel-cont").owlCarousel({
+          loop: true,
+          margin: 0,
+          responsiveClass: true,
+          mouseDrag: true,
+          touchDrag: true,
+
+          dots: false,
+          autoplay: true,
+          autoplayTimeout: 1000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+
+            440: {
+              items: 1,
+            },
+            600: {
+              items: 1,
+            },
+            1000: {
+              items: 1,
+            },
           },
-          1000: {
-            items: 4,
-          },
-        },
+        });
       });
     </script>
   </body>

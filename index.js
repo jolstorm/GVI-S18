@@ -54,3 +54,13 @@ for (const bookmark of bookmarks) {
     bookmark.classList.toggle("bookmarked");
   });
 }
+
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.querySelector(".ddmenu-wrapper").classList += " show";
+  document.querySelector(".shade").classList += " dark";
+});
+
+document.querySelector("#close i").addEventListener("click", () => {
+  document.querySelector(".ddmenu-wrapper").classList.remove("show");
+  document.querySelector(".shade").classList.remove("dark");
+});
