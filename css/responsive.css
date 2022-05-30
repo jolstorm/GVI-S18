@@ -115,6 +115,12 @@
   #hamburger:hover {
     cursor: pointer;
   }
+  .shade {
+    display: block;
+  }
+  .ddmenu-wrapper {
+    display: block;
+  }
   #hero {
     padding-top: 50px;
   }
@@ -293,7 +299,7 @@
   }
   #close {
     margin-bottom: 2px;
-    padding: 3px 25px;
+    padding: 8px 25px 5px 0px;
   }
 }
 @media (max-width: 398px) {

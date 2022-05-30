@@ -54,6 +54,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid black; */
 }
 
 nav a {
@@ -61,6 +62,7 @@ nav a {
   font-size: 16px;
   color: #183b56;
   font-weight: 600;
+  position: relative;
 }
 
 /* nav a:hover {
@@ -99,6 +101,10 @@ nav a {
   font-weight: 700;
 }
 
+#get-it-now-button:hover {
+  background: #1565d8;
+  color: white;
+}
 #hamburger {
   display: none;
 }
@@ -114,6 +120,7 @@ nav a {
   z-index: 6;
   transform: translateX(40vw);
   transition: transform 1s ease;
+  display: none;
 }
 
 .show {
@@ -198,14 +205,37 @@ nav a {
 }
 #hero .text-content {
   width: 490px;
+  position: relative;
 }
 
+.content {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#carousel-cont {
+  display: none;
+}
 /* Samsung logo */
 
 #s-logo {
   height: 17px;
   width: 100px;
   /* margin-top: 10px; */
+}
+
+#a-logo {
+  font-size: 48px;
+  color: #183b56;
+}
+#b-logo {
+  color: #183b56;
+  font-size: 36px;
+}
+
+.content:first-of-type h1 {
+  margin: 20px 0 24px 0;
 }
 
 .text-content h1 {
@@ -247,7 +277,7 @@ nav a {
 #email-input-cont {
   width: 100%;
   position: relative;
-  margin-top: 48px;
+  margin-top: 355px;
 }
 #email-input {
   width: 100%;
@@ -299,9 +329,6 @@ nav a {
 .hero-images {
   transition: 0.5s ease;
 }
-/* .active{
-  transition: 
-} */
 
 #hero .img-container img {
   position: absolute;
@@ -401,22 +428,17 @@ nav a {
   border-radius: 10px;
 }
 
-/* .selected {
-  background: #1565d8;
-} */
 .product:hover {
   cursor: pointer;
 }
 .product:active {
   transform: scale(1.07);
 }
-/* .product:hover .line {
-  background: #1565d8;
-} */
 
 .selected {
   background: #1565d8;
 }
+
 /* Product Recommendations */
 
 #prod-rec {
@@ -479,6 +501,10 @@ nav a {
   transform: scale(0.99);
 }
 
+.liked {
+  color: white;
+  background: #183b56 !important;
+}
 .product-name {
   margin: 30px 0 20px 0;
   font-size: 20px;
