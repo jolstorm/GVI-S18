@@ -377,9 +377,7 @@
   #hot-item .heading {
     flex-direction: column;
     justify-content: space-between;
-    /* border: 1px solid black; */
     height: 600px;
-    /* margin-bottom: 25px; */
   }
   #hot-item .heading h2 {
     margin-bottom: 8px;
@@ -413,7 +411,7 @@
     transform: translateX(100vw);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    transition: transform 2s ease-in-out;
+    transition: transform 0.8s ease;
   }
   .show {
     transform: translateX(0vw);
@@ -424,7 +422,7 @@
   }
   #close {
     margin-bottom: 2px;
-    padding: 8px 25px 5px 0px;
+    padding: 8px 20px 5px 0px;
   }
   .download-info p {
     width: 40% !important;
