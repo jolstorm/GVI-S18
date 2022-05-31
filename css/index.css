@@ -107,6 +107,7 @@ nav a {
 }
 #hamburger {
   display: none;
+  color: #183b56;
 }
 #hamburger:hover {
   cursor: pointer;
@@ -428,8 +429,8 @@ nav a {
   /* width: 80px; */
   display: flex;
 }
-.single-product-card .product-details div{
-  margin-left:10px;
+.single-product-card .product-details div {
+  margin-left: 10px;
 }
 .single-product-card .product-details p {
   height: max-content;
@@ -821,16 +822,16 @@ nav a {
   left: -25px;
   z-index: 2;
   box-shadow: -5px -5px 30px rgba(0, 0, 0, 0.1);
-  padding: 6px;
+  /* padding: 6px; */
 }
 
 .owl-next {
   background: transparent;
   border: none;
-  font-size: 36px;
-  padding: 2px;
+  font-size: 20px;
+  padding: 10px;
   position: absolute;
-  right: -30px;
+  right: -25px;
   color: #3f598a;
   width: 50px;
 }
@@ -838,10 +839,10 @@ nav a {
 .owl-prev {
   background: transparent;
   border: none;
-  font-size: 36px;
-  padding: 2px;
+  font-size: 20px;
+  padding: 10px;
   position: absolute;
-  left: -30px;
+  left: -25px;
   color: #3f598a;
   width: 50px;
 }
