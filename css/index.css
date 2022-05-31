@@ -8,6 +8,12 @@ body {
   background: #f5f5f5;
 }
 /* General and utility classes */
+
+a,
+button:focus {
+  outline: none;
+}
+
 /* ::-webkit-scrollbar {
   width: 10px;
 }
@@ -318,6 +324,7 @@ nav a {
 
 #hero button:hover {
   cursor: pointer;
+  transform: scale(1.06);
 }
 
 #email-input:focus {
