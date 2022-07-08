@@ -912,7 +912,7 @@
         console.log("ready!");
 
         $("#prod-cont").owlCarousel({
-          loop: false,
+          loop: true,
           margin: 0,
           responsiveClass: true,
           mouseDrag: true,
@@ -937,33 +937,6 @@
             },
             1000: {
               items: 4,
-            },
-          },
-        });
-        $("#carousel-cont").owlCarousel({
-          loop: true,
-          margin: 0,
-          responsiveClass: true,
-          mouseDrag: true,
-          touchDrag: true,
-
-          dots: false,
-          autoplay: true,
-          autoplayTimeout: 1000,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 1,
-            },
-
-            440: {
-              items: 1,
-            },
-            600: {
-              items: 1,
-            },
-            1000: {
-              items: 1,
             },
           },
         });

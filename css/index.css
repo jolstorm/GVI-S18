@@ -14,6 +14,14 @@ button:focus {
   outline: none;
 }
 
+section {
+  transition: 0.7s ease;
+}
+.section--hidden {
+  opacity: 0;
+  transform: translateY(6rem);
+}
+
 /* ::-webkit-scrollbar {
   width: 10px;
 }
